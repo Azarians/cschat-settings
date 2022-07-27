@@ -1,26 +1,14 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { FC } from 'react';
+import { useSelector } from 'react-redux';
+import { selectMessages } from './store/reducers/messages/selectors';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+type T_Props = {};
+
+const App: FC<T_Props> = () => {
+	const messages = useSelector(selectMessages);
+	console.log(messages);
+
+	return <div>coming soon...</div>;
+};
 
 export default App;
