@@ -1,5 +1,5 @@
 {
-  "name": "cschat-settings",
+  "name": "cschat",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
