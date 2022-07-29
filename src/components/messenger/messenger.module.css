@@ -1,0 +1,9 @@
+.container{
+    height: 100%;
+}
+
+.messages{
+    height: calc(100% - 80px);
+    overflow: auto;
+    padding: 16px
+}

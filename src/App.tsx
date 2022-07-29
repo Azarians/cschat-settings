@@ -1,27 +1,23 @@
 import React, { FC, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { RECEIVE_MESSAGE_EVENT_NAME } from './helpers/constants/webSocket';
-import { sendMessage } from './helpers/functions/webSocket';
+import { useDispatch, useSelector } from 'react-redux';
+import { Messenger } from './components/messenger/Messenger';
+import { TEST_SITE_ID } from './helpers/constants/commons';
 import { selectMessages } from './store/reducers/messages/selectors';
+import { authorizeUserRequested } from './store/sagas/user/actionCreators';
+import './assets/css/globals.css';
 
 type T_Props = {};
 
 const App: FC<T_Props> = () => {
 	const messages = useSelector(selectMessages);
+	const dispatch = useDispatch();
 	console.log(messages);
 
 	useEffect(() => {
-		window.addEventListener(RECEIVE_MESSAGE_EVENT_NAME, (data) => {
-			const { detail } = data as unknown as CustomEvent;
-			console.log(detail);
-		});
-
-		setInterval(() => {
-			sendMessage?.({ id: 0, text: 'hello' });
-		}, 4000);
+		dispatch(authorizeUserRequested(TEST_SITE_ID));
 	}, []);
 
-	return <div>coming soon...</div>;
+	return <Messenger />;
 };
 
 export default App;
