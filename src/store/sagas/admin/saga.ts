@@ -15,7 +15,6 @@ function* SWO_AuthorizeAdmin({ payload }: T_authorizeAdminRequested) {
 		const admin: T_Admin = yield call(R_authorizeAdmin, payload.sid);
 
 		yield put(authorizeAdminSecceeded(admin));
-		console.log(1312312312);
 
 		establishSocketConnection(admin._id, SITE_ID, RECEIVE_MESSAGE_EVENT_NAME);
 
