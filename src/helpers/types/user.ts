@@ -7,3 +7,5 @@ export type T_User = {
 	role: keyof typeof USER_ROLES;
 	created_at: number;
 };
+
+export type T_Admin = T_User;

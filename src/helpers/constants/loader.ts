@@ -1,6 +1,6 @@
 const LOADER_IDS = {
 	getSiteId: true,
-	authorizeUser: true
+	authorizeAdmin: true
 };
 
 export { LOADER_IDS };

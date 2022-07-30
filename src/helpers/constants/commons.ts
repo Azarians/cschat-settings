@@ -1,3 +1,5 @@
-const TEST_SITE_ID = '649b60a0-eb22-4e28-9aab-b71024838001';
+import { getUrlParameter } from 'cschat-helpers';
 
-export { TEST_SITE_ID };
+const SITE_ID = getUrlParameter('instance');
+
+export { SITE_ID };

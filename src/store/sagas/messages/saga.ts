@@ -6,13 +6,11 @@ import { T_getMessagesRequested } from './types';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 function* SWO_GetMessages({ payload }: T_getMessagesRequested) {
-	const messages: T_Message[] = yield call(R_getMessages, payload);
-	yield put(getMessagesSucceeded(messages));
+	const messages: T_Message[] = yield call(R_getMessages, payload.sid);
+	yield put(getMessagesSucceeded(messages, payload.aid));
 }
 
 function* SWA_Messages() {
-	console.log(2342);
-
 	yield all([takeLatest(GET_MESSAGES_REQUESTED, SWO_GetMessages)]);
 }
 
