@@ -1,9 +1,8 @@
-import { ADD_NEW_MESSAGE, GET_MESSAGES_SUCCEEDED, SET_SELECTED_USER_ID } from './actionTypes';
+import { ADD_NEW_MESSAGE, GET_MESSAGES_SUCCEEDED } from './actionTypes';
 import { T_MessagesReducerAction, T_MessagesState } from './types';
 
 const initialState: T_MessagesState = {
-	byUid: {},
-	selectedUserId: ''
+	byUid: {}
 };
 
 const messagesReducer = (state = initialState, { type, payload }: T_MessagesReducerAction) => {
@@ -25,11 +24,6 @@ const messagesReducer = (state = initialState, { type, payload }: T_MessagesRedu
 				byUid
 			};
 		}
-		case SET_SELECTED_USER_ID:
-			return {
-				...state,
-				selectedUserId: payload.uid
-			};
 		case ADD_NEW_MESSAGE: {
 			const { message } = payload;
 			const uid = message.to === payload.aid ? message.from : message.to;

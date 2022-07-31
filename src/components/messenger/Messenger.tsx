@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { SITE_ID } from '../../helpers/constants/commons';
 import { USER_ROLES } from '../../helpers/constants/user';
 import { RECEIVE_MESSAGE_EVENT_NAME } from '../../helpers/constants/webSocket';
+import { useCHatSelectedUserId } from '../../hooks/useChatSelectedUserId';
+import { useChatSelectedUserMessages } from '../../hooks/useChatSelectedUserMessages';
 import { selectAId } from '../../store/reducers/admin/selectors';
 import { addNewMessage } from '../../store/reducers/messages/actionCreators';
-import { selectMessages, selectSelectedUid } from '../../store/reducers/messages/selectors';
 import { sendMessage } from 'cschat-helpers';
 import { Messenger as CSMessenger } from 'cschat-messenger';
 import 'cschat-messenger/dist/index.css';
@@ -13,8 +14,8 @@ import 'cschat-messenger/dist/index.css';
 type T_Props = {};
 
 const Messenger: FC<T_Props> = () => {
-	const messages = useSelector(selectMessages);
-	const selectedUId = useSelector(selectSelectedUid);
+	const messages = useChatSelectedUserMessages();
+	const selectedUId = useCHatSelectedUserId();
 	const aid = useSelector(selectAId);
 	const dispatch = useDispatch();
 

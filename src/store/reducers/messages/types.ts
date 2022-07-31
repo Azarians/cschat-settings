@@ -1,12 +1,11 @@
 import { T_Message } from '../../../helpers/types/message';
 import { T_Admin, T_User } from '../../../helpers/types/user';
-import { ADD_NEW_MESSAGE, GET_MESSAGES_SUCCEEDED, SET_SELECTED_USER_ID } from './actionTypes';
+import { ADD_NEW_MESSAGE, GET_MESSAGES_SUCCEEDED } from './actionTypes';
 
 export type T_MessagesState = {
 	byUid: {
 		[key: T_User['_id']]: T_Message[];
 	};
-	selectedUserId: T_User['_id'];
 };
 
 export type T_getMessagesSucceeded = {
@@ -25,14 +24,4 @@ export type T_addNewMessage = {
 	};
 };
 
-export type T_setSelectedUserId = {
-	type: typeof SET_SELECTED_USER_ID;
-	payload: {
-		uid: T_User['_id'];
-	};
-};
-
-export type T_MessagesReducerAction =
-	| T_addNewMessage
-	| T_setSelectedUserId
-	| T_getMessagesSucceeded;
+export type T_MessagesReducerAction = T_addNewMessage | T_getMessagesSucceeded;
