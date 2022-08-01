@@ -1,11 +1,13 @@
 import React, { FC, Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import { Messenger } from './components/messenger/Messenger';
 import { SideMenu } from './components/sideMenu/SideMenu';
-import { UsersSelector } from './components/usersSelector/UsersSelctor';
 import { APP_PATHS, SITE_ID } from './helpers/constants/commons';
+import { Chat } from './pages/chat/Main';
+import { Localize } from './pages/localize/Main';
 import { Main } from './pages/main/Main';
+import { Support } from './pages/support/Main';
+import { Upgrade } from './pages/upgrade/Main';
 import { authorizeAdminRequested } from './store/sagas/admin/actionCreators';
 import './assets/css/globals.css';
 
@@ -35,16 +37,22 @@ const App: FC<T_Props> = () => {
 									path={APP_PATHS.main}
 									element={<Main />}
 								/>
-								<Route path={APP_PATHS.chat}>
-									<Route
-										index
-										element={<UsersSelector />}
-									/>
-									<Route
-										path=':uid'
-										element={<Messenger />}
-									/>
-								</Route>
+								<Route
+									path={APP_PATHS.localize}
+									element={<Localize />}
+								/>
+								<Route
+									path={APP_PATHS.chat}
+									element={<Chat />}
+								/>
+								<Route
+									path={APP_PATHS.support}
+									element={<Support />}
+								/>
+								<Route
+									path={APP_PATHS.upgrade}
+									element={<Upgrade />}
+								/>
 								<Route
 									path='*'
 									element={<Navigate to={`/${APP_PATHS.main}`} />}

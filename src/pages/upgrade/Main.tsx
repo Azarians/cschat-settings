@@ -3,8 +3,8 @@ import Button from '@mui/material/Button';
 
 type T_Props = {};
 
-const Main: FC<T_Props> = () => {
-	return <Button>main page</Button>;
+const Upgrade: FC<T_Props> = () => {
+	return <Button>Upgrade now</Button>;
 };
 
-export { Main };
+export { Upgrade };

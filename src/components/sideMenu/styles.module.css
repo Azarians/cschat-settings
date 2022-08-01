@@ -1,3 +1,12 @@
 .container{
     width: var(--side-menu-width);
+    height: 100%;
+    padding: 6px;
+    background-color: #f6fbff;
+}
+
+.wrapper{
+    display: grid;
+    gap: 6px;
+    height: fit-content;
 }

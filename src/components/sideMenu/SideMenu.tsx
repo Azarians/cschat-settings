@@ -1,6 +1,9 @@
 import React, { FC } from 'react';
 import { NavLink } from 'react-router-dom';
-import { APP_PATHS } from '../../helpers/constants/commons';
+import { SIDE_MENU_OPTIONS } from '../../helpers/constants/sideMenu';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Divider from '@mui/material/Divider';
 import styles from './styles.module.css';
 
 type T_Props = {};
@@ -8,11 +11,28 @@ type T_Props = {};
 const SideMenu: FC<T_Props> = () => {
 	return (
 		<div className={styles.container}>
-			{Object.values(APP_PATHS).map((path) => (
-				<div>
-					<NavLink to={path}>{path}</NavLink>
-				</div>
-			))}
+			<div className={styles.wrapper}>
+				{SIDE_MENU_OPTIONS.map(({ label, path, type, id, color }) =>
+					type === 'divider' ? (
+						<Box padding='0 4px'>
+							<Divider />
+						</Box>
+					) : (
+						<NavLink
+							to={String(path)}
+							key={id}
+						>
+							<Button
+								size='small'
+								sx={{ minWidth: 'unset' }}
+								color={color}
+							>
+								{label}
+							</Button>
+						</NavLink>
+					)
+				)}
+			</div>
 		</div>
 	);
 };
