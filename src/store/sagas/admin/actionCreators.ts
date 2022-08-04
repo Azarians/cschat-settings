@@ -1,11 +1,15 @@
-import { T_SiteId } from '../../../helpers/types/commons';
+import { T_Chat, T_ChatRoom } from '../../../helpers/types/chat';
 import { AUTHORIZE_ADMIN_REQUESTED } from './actionTypes';
 import { T_authorizeAdminRequested } from './types';
 
-const authorizeAdminRequested = (sid: T_SiteId): T_authorizeAdminRequested => ({
+const authorizeAdminRequested = (
+	chatId: T_Chat['_id'],
+	chatRoomIds: T_ChatRoom['_id'][]
+): T_authorizeAdminRequested => ({
 	type: AUTHORIZE_ADMIN_REQUESTED,
 	payload: {
-		sid
+		chatId,
+		chatRoomIds
 	}
 });
 

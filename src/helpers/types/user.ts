@@ -1,11 +1,15 @@
-import { USER_ROLES } from '../constants/user';
-import { T_SiteId } from './commons';
+import { T_Chat } from './chat';
+import { T_ConnectionStatus } from './commons';
 
 export type T_User = {
 	_id: string;
-	sid: T_SiteId;
-	role: keyof typeof USER_ROLES;
-	created_at: number;
+	chatId: T_Chat['_id'];
+	displayData?: {
+		firstName: string;
+		lastName: string;
+		email: string;
+	};
+	country: string;
+	status: T_ConnectionStatus;
+	createdAt: number;
 };
-
-export type T_Admin = T_User;

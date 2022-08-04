@@ -3,7 +3,9 @@ import { SET_LOADER } from './actionTypes';
 import { T_LoaderReducerAction, T_LoaderState } from './types';
 
 const initialState: T_LoaderState = {
-	requestsInProcess: LOADER_IDS
+	[LOADER_IDS.authorizeChat]: true,
+	[LOADER_IDS.authorizeAdmin]: true,
+	[LOADER_IDS.getMessages]: true
 };
 
 const loaderReducer = (state = initialState, { type, payload }: T_LoaderReducerAction) => {

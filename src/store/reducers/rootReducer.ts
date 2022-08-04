@@ -1,4 +1,5 @@
 import { adminReducer } from './admin/reducer';
+import { chatReducer } from './chat/reducer';
 import { loaderReducer } from './loader/reducer';
 import { messagesReducer } from './messages/reducer';
 import { usersReducer } from './users/reducer';
@@ -8,7 +9,8 @@ const rootReducer = combineReducers({
 	messages: messagesReducer,
 	admin: adminReducer,
 	loader: loaderReducer,
-	users: usersReducer
+	users: usersReducer,
+	chat: chatReducer
 });
 
 export { rootReducer };

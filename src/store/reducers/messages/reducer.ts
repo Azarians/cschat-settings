@@ -2,36 +2,37 @@ import { ADD_NEW_MESSAGE, GET_MESSAGES_SUCCEEDED } from './actionTypes';
 import { T_MessagesReducerAction, T_MessagesState } from './types';
 
 const initialState: T_MessagesState = {
-	byUid: {}
+	byChatRoomId: {}
 };
 
 const messagesReducer = (state = initialState, { type, payload }: T_MessagesReducerAction) => {
 	switch (type) {
 		case GET_MESSAGES_SUCCEEDED: {
-			const byUid: T_MessagesState['byUid'] = {};
-			const { aid, messages } = payload;
-			for (let message of messages) {
-				const uid = message.from === aid ? message.to : message.from;
-				if (byUid[uid]) {
-					byUid[uid].push(message);
+			const byChatRoomId: T_MessagesState['byChatRoomId'] = {};
+
+			for (let message of payload.messages) {
+				if (byChatRoomId[message.chatRoomId]) {
+					byChatRoomId[message.chatRoomId].push(message);
 					continue;
 				}
-				byUid[uid] = [message];
+				byChatRoomId[message.chatRoomId] = [message];
 			}
 
 			return {
 				...state,
-				byUid
+				byChatRoomId
 			};
 		}
 		case ADD_NEW_MESSAGE: {
 			const { message } = payload;
-			const uid = message.to === payload.aid ? message.from : message.to;
 			return {
 				...state,
-				byUid: {
-					...state.byUid,
-					[uid]: [...(state.byUid[uid] || []), message]
+				byChatRoomId: {
+					...state.byChatRoomId,
+					[message.chatRoomId]: [
+						...(state.byChatRoomId[message.chatRoomId] || []),
+						message
+					]
 				}
 			};
 		}

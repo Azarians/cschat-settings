@@ -1,9 +1,9 @@
 import { T_RootState } from '../..';
-import { T_LoaderId } from './types';
 
-const selectLoaderStatusById =
-	(loaderId: T_LoaderId) =>
-	(state: T_RootState): boolean =>
-		state.loader.requestsInProcess[loaderId];
+const selectHasRequestsInProcess = (state: T_RootState) =>
+	Object.values(state.loader).some((i) => {
+		console.log(i);
+		return i;
+	}); // temp
 
-export { selectLoaderStatusById };
+export { selectHasRequestsInProcess };

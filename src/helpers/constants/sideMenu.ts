@@ -17,18 +17,19 @@ const SIDE_MENU_OPTIONS = [
 		id: 2
 	},
 	{
-		type: 'divider'
+		type: 'divider',
+		id: 3
 	},
 	{
 		label: 'Support',
 		path: APP_PATHS.support,
-		id: 3
+		id: 4
 	},
 	{
 		label: 'Upgrade',
 		path: APP_PATHS.upgrade,
 		color: 'secondary' as const,
-		id: 4
+		id: 5
 	}
 ];
 

@@ -1,4 +1,4 @@
-import { T_Admin } from './../../../helpers/types/user';
+import { T_Admin } from '../../../helpers/types/admin';
 import { AUTHORIZE_ADMIN_SUCCEEDED } from './actionTypes';
 
 export type T_AdminState = T_Admin;

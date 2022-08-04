@@ -4,9 +4,7 @@ import { SET_LOADER } from './actionTypes';
 export type T_LoaderId = keyof typeof LOADER_IDS;
 
 export type T_LoaderState = {
-	requestsInProcess: {
-		[key in T_LoaderId]: boolean;
-	};
+	[key in T_LoaderId]: boolean;
 };
 
 export type T_setLoader = {

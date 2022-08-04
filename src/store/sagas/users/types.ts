@@ -1,9 +1,9 @@
-import { T_SiteId } from '../../../helpers/types/commons';
+import { T_Chat } from '../../../helpers/types/chat';
 import { GET_USERS_REQUESTED } from './actionTypes';
 
 export type T_getUsersRequested = {
 	type: typeof GET_USERS_REQUESTED;
 	payload: {
-		sid: T_SiteId;
+		chatId: T_Chat['_id'];
 	};
 };

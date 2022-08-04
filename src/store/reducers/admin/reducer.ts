@@ -1,12 +1,13 @@
-import { USER_ROLES } from '../../../helpers/constants/user';
+import { CONNECTION_STATUSES, SITE_ID } from '../../../helpers/constants/commons';
 import { AUTHORIZE_ADMIN_SUCCEEDED } from './actionTypes';
 import { T_AdminState, T_AdminReducerAction } from './types';
 
 const initialState: T_AdminState = {
 	_id: '',
-	sid: '',
-	role: USER_ROLES.admin,
-	created_at: NaN
+	siteId: SITE_ID,
+	country: 'Unknown',
+	status: CONNECTION_STATUSES[0],
+	createdAt: NaN
 };
 
 const adminReducer = (state = initialState, { type, payload }: T_AdminReducerAction) => {

@@ -1,5 +1,7 @@
 import { R_getUsers } from '../../../api/users/api';
+import { LOADER_IDS } from '../../../helpers/constants/loader';
 import { T_User } from '../../../helpers/types/user';
+import { setLoader } from '../../reducers/loader/actionCreators';
 import { getUsersSucceeded } from '../../reducers/users/actionCreators';
 import { GET_USERS_REQUESTED } from './actionTypes';
 import { T_getUsersRequested } from './types';
@@ -7,9 +9,13 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 function* SWO_GetUsers({ payload }: T_getUsersRequested) {
 	try {
-		const users: T_User[] = yield call(R_getUsers, payload.sid);
+		yield put(setLoader(LOADER_IDS.getMessages, true));
+
+		const users: T_User[] = yield call(R_getUsers, payload.chatId);
 
 		yield put(getUsersSucceeded(users));
+
+		yield put(setLoader(LOADER_IDS.getMessages, false));
 	} catch (e) {
 		console.log(e);
 	}

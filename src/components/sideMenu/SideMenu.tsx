@@ -14,7 +14,10 @@ const SideMenu: FC<T_Props> = () => {
 			<div className={styles.wrapper}>
 				{SIDE_MENU_OPTIONS.map(({ label, path, type, id, color }) =>
 					type === 'divider' ? (
-						<Box padding='0 4px'>
+						<Box
+							padding='0 4px'
+							key={id}
+						>
 							<Divider />
 						</Box>
 					) : (

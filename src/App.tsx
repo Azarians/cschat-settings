@@ -1,24 +1,28 @@
 import React, { FC, Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { SideMenu } from './components/sideMenu/SideMenu';
-import { APP_PATHS, SITE_ID } from './helpers/constants/commons';
-import { Chat } from './pages/chat/Main';
+import { APP_PATHS } from './helpers/constants/commons';
+import { Messenger, UsersSelector } from './pages/chat/Main';
 import { Localize } from './pages/localize/Main';
 import { Main } from './pages/main/Main';
 import { Support } from './pages/support/Main';
 import { Upgrade } from './pages/upgrade/Main';
-import { authorizeAdminRequested } from './store/sagas/admin/actionCreators';
+import { selectHasRequestsInProcess } from './store/reducers/loader/selectors';
+import { authorizeChatRequested } from './store/sagas/chat/actionCreators';
 import './assets/css/globals.css';
 
 type T_Props = {};
 
 const App: FC<T_Props> = () => {
 	const dispatch = useDispatch();
+	const hasRequestsInProcess = useSelector(selectHasRequestsInProcess);
 
 	useEffect(() => {
-		dispatch(authorizeAdminRequested(SITE_ID));
+		dispatch(authorizeChatRequested());
 	}, []);
+
+	if (hasRequestsInProcess) return <>Loading...</>;
 
 	return (
 		<BrowserRouter>
@@ -41,10 +45,16 @@ const App: FC<T_Props> = () => {
 									path={APP_PATHS.localize}
 									element={<Localize />}
 								/>
-								<Route
-									path={APP_PATHS.chat}
-									element={<Chat />}
-								/>
+								<Route path={APP_PATHS.chat}>
+									<Route
+										index
+										element={<UsersSelector />}
+									/>
+									<Route
+										path=':userId'
+										element={<Messenger />}
+									/>
+								</Route>
 								<Route
 									path={APP_PATHS.support}
 									element={<Support />}
