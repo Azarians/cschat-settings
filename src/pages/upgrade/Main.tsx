@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { TranslatedText } from '../../components/translatedText/TranslatedText';
 import { openBillingPage } from '../../helpers/functions/commons';
 import UpgradeImage from './../../assets/images/upgrade.webp';
 import { Box, Stack, Typography } from '@mui/material';
@@ -25,7 +26,9 @@ const Upgrade: FC<T_Props> = () => {
 					src={UpgradeImage}
 					style={{ width: '70%', marginBottom: '20px' }}
 				/>
-				<Typography>Upgrade Your Plan</Typography>
+				<Typography>
+					<TranslatedText>Upgrade Your Plan</TranslatedText>
+				</Typography>
 			</Box>
 
 			<Box>
@@ -35,7 +38,7 @@ const Upgrade: FC<T_Props> = () => {
 					onClick={openBillingPage}
 					size='small'
 				>
-					Upgrade Now
+					<TranslatedText>Upgrade Now</TranslatedText>
 				</Button>
 			</Box>
 		</Stack>

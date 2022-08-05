@@ -15,4 +15,4 @@ const Display: FC<T_Props> = () => {
 	);
 };
 
-export default Display;
+export { Display };

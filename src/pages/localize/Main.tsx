@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SectionHeader from '../../components/sectionHeader/SectionHeader';
+import { TranslatedText } from '../../components/translatedText/TranslatedText';
 // import { SITE_LANGUAGE } from '../../helpers/constants/commons';
 import { LANGUAGES_LIST, TIME_FORMAT_TYPES } from '../../helpers/constants/settings';
 import { T_Language, T_Settings, T_TimeFormat } from '../../helpers/types/settings';
@@ -36,7 +37,9 @@ const Localize: FC<T_Props> = () => {
 
 	return (
 		<Box>
-			<SectionHeader hideTopBorder>Localize</SectionHeader>
+			<SectionHeader hideTopBorder>
+				<TranslatedText>Localize</TranslatedText>
+			</SectionHeader>
 			<Stack
 				spacing={2}
 				padding={2}
@@ -51,7 +54,7 @@ const Localize: FC<T_Props> = () => {
 							}
 						/>
 					}
-					label='Use site language'
+					label={<TranslatedText>Use site language</TranslatedText>}
 					labelPlacement='start'
 					sx={{ justifyContent: 'space-between', ml: 0 }}
 				/>
@@ -76,7 +79,7 @@ const Localize: FC<T_Props> = () => {
 							fullWidth
 						/>
 					}
-					label='Language'
+					label={<TranslatedText>Language</TranslatedText>}
 					labelPlacement='top'
 					sx={{ alignItems: 'flex-start', ml: 0 }}
 				/>
@@ -91,16 +94,19 @@ const Localize: FC<T_Props> = () => {
 								if (newTimeFormat === null) return;
 								update({ timeFormat: newTimeFormat as T_TimeFormat });
 							}}
-							aria-label='text alignment'
 							color='primary'
 							fullWidth
 							size='small'
 						>
-							<ToggleButton value={TIME_FORMAT_TYPES[0]}>AM/PM</ToggleButton>
-							<ToggleButton value={TIME_FORMAT_TYPES[1]}>24H</ToggleButton>
+							<ToggleButton value={TIME_FORMAT_TYPES[0]}>
+								<TranslatedText>AM/PM</TranslatedText>
+							</ToggleButton>
+							<ToggleButton value={TIME_FORMAT_TYPES[1]}>
+								<TranslatedText>24H</TranslatedText>
+							</ToggleButton>
 						</ToggleButtonGroup>
 					}
-					label='Time format'
+					label={<TranslatedText>Time format</TranslatedText>}
 					labelPlacement='top'
 					sx={{ alignItems: 'flex-start', ml: 0 }}
 				/>

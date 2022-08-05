@@ -15,4 +15,4 @@ const Texts: FC<T_Props> = () => {
 	);
 };
 
-export default Texts;
+export { Texts };

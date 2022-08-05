@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import SectionHeader from '../../components/sectionHeader/SectionHeader';
+import { TranslatedText } from '../../components/translatedText/TranslatedText';
 import { openDashboard } from '../../helpers/functions/commons';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined';
@@ -28,8 +29,10 @@ const Main: FC<T_Props> = () => {
 					variant='body2'
 					textAlign='center'
 				>
-					Engage visitors and capture leads. Customize your chat settings, or chat with
-					site visitors via CSChat Inbox.
+					<TranslatedText>
+						Engage visitors and capture leads. Customize your chat settings, or chat
+						with site visitors via CSChat Inbox.
+					</TranslatedText>
 				</Typography>
 				<Stack spacing={2}>
 					<Button
@@ -37,19 +40,21 @@ const Main: FC<T_Props> = () => {
 						onClick={() => openDashboard({ urlParams: { page: 'home' } })}
 						size='small'
 					>
-						Manage Chat
+						<TranslatedText>Manage Chat</TranslatedText>
 					</Button>
 					<Button
 						variant='outlined'
 						onClick={() => openDashboard({ urlParams: { page: 'messages' } })}
 						size='small'
 					>
-						See Messages
+						<TranslatedText>See Messages</TranslatedText>
 					</Button>
 				</Stack>
 			</Stack>
 			<Stack>
-				<SectionHeader>Prompt Actions</SectionHeader>
+				<SectionHeader>
+					<TranslatedText>Prompt Actions</TranslatedText>
+				</SectionHeader>
 				<List>
 					<ListItem>
 						<ListItemIcon>
@@ -60,7 +65,7 @@ const Main: FC<T_Props> = () => {
 								underline='hover'
 								onClick={() => openDashboard({ urlParams: { page: 'chatRooms' } })}
 							>
-								Manage Chat Rooms
+								<TranslatedText>Manage Chat Rooms</TranslatedText>
 							</Link>
 						</ListItemText>
 					</ListItem>
@@ -75,7 +80,7 @@ const Main: FC<T_Props> = () => {
 									openDashboard({ urlParams: { page: 'activeHours' } })
 								}
 							>
-								Chat Active Hours Schedule
+								<TranslatedText>Chat Active Hours Schedule</TranslatedText>
 							</Link>
 						</ListItemText>
 					</ListItem>
@@ -88,7 +93,7 @@ const Main: FC<T_Props> = () => {
 								underline='hover'
 								onClick={() => openDashboard({ urlParams: { page: 'blackList' } })}
 							>
-								Chat Black List
+								<TranslatedText>Chat Black List</TranslatedText>
 							</Link>
 						</ListItemText>
 					</ListItem>

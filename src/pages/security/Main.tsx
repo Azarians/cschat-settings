@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { TranslatedText } from '../../components/translatedText/TranslatedText';
 import { openDashboard } from '../../helpers/functions/commons';
 import SecurityIllustration from './../../assets/images/security.png';
 import { Box, Button, Stack, Typography } from '@mui/material';
@@ -20,7 +21,9 @@ const Security: FC<T_Props> = () => {
 				variant='body1'
 				textAlign='center'
 			>
-				Manage your chat access, define authorization rules, and more.
+				<TranslatedText>
+					Manage your chat access, define authorization rules, and more.
+				</TranslatedText>
 			</Typography>
 
 			<Box paddingTop={2}>
@@ -29,11 +32,11 @@ const Security: FC<T_Props> = () => {
 					size='small'
 					onClick={() => openDashboard({ urlParams: { page: 'messages' } })}
 				>
-					Manage Chat Security
+					<TranslatedText>Manage Chat Security</TranslatedText>
 				</Button>
 			</Box>
 		</Stack>
 	);
 };
 
-export default Security;
+export { Security };

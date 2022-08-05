@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import SectionHeader from '../../../components/sectionHeader/SectionHeader';
+import { TranslatedText } from '../../../components/translatedText/TranslatedText';
 import { selectUsersList } from './../../../store/reducers/users/selectors';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -17,7 +18,9 @@ const UsersSelector: FC<T_Props> = () => {
 		<List
 			subheader={
 				<ListSubheader sx={{ padding: 0 }}>
-					<SectionHeader hideTopBorder>Users List</SectionHeader>
+					<SectionHeader hideTopBorder>
+						<TranslatedText>Users List</TranslatedText>
+					</SectionHeader>
 				</ListSubheader>
 			}
 			sx={{ overflow: 'auto', maxHeight: '100vh' }}

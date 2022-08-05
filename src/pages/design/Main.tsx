@@ -15,4 +15,4 @@ const Design: FC<T_Props> = () => {
 	);
 };
 
-export default Design;
+export { Design };

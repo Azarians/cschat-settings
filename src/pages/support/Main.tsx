@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import SectionHeader from '../../components/sectionHeader/SectionHeader';
+import { TranslatedText } from '../../components/translatedText/TranslatedText';
 import { openReviewModal } from '../../helpers/functions/commons';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
@@ -20,14 +21,18 @@ const Support: FC<T_Props> = () => {
 			height='100%'
 		>
 			<Stack>
-				<SectionHeader hideTopBorder>Get Answers</SectionHeader>
+				<SectionHeader hideTopBorder>
+					<TranslatedText>Get Answers</TranslatedText>
+				</SectionHeader>
 				<List>
 					<ListItem>
 						<ListItemIcon>
 							<MailOutlinedIcon color='primary' />
 						</ListItemIcon>
 						<ListItemText>
-							<Link underline='hover'>Support E-mail</Link>
+							<Link underline='hover'>
+								<TranslatedText>Support E-mail</TranslatedText>
+							</Link>
 						</ListItemText>
 					</ListItem>
 					<ListItem>
@@ -35,7 +40,9 @@ const Support: FC<T_Props> = () => {
 							<LanguageOutlinedIcon color='primary' />
 						</ListItemIcon>
 						<ListItemText>
-							<Link underline='hover'>Our Website</Link>
+							<Link underline='hover'>
+								<TranslatedText>Our Website</TranslatedText>
+							</Link>
 						</ListItemText>
 					</ListItem>
 					<ListItem>
@@ -43,7 +50,9 @@ const Support: FC<T_Props> = () => {
 							<RateReviewOutlinedIcon color='primary' />
 						</ListItemIcon>
 						<ListItemText>
-							<Link underline='hover'>Send Us Feedback</Link>
+							<Link underline='hover'>
+								<TranslatedText>Send Us Feedback</TranslatedText>
+							</Link>
 						</ListItemText>
 					</ListItem>
 				</List>
@@ -63,7 +72,9 @@ const Support: FC<T_Props> = () => {
 					variant='body2'
 					textAlign='center'
 				>
-					Enjoying CSChat? Share your experience in the App Market.
+					<TranslatedText>
+						Enjoying CSChat? Share your experience in the App Market.
+					</TranslatedText>
 				</Typography>
 				<Box marginTop={2.5}>
 					<Button
@@ -71,7 +82,7 @@ const Support: FC<T_Props> = () => {
 						variant='contained'
 						onClick={openReviewModal}
 					>
-						Add a Review
+						<TranslatedText>Add a Review</TranslatedText>
 					</Button>
 				</Box>
 			</Stack>
