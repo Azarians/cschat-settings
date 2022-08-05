@@ -1,6 +1,6 @@
 :root{
-    --side-menu-width: 120px;
-    --page-content-width: calc(100% - 120px);
+    --side-menu-max-width: 120px;
+    --side-menu-min-width: 100px;
 }
 
 html,
@@ -21,7 +21,8 @@ body,
 }
 
 .page-wrapper{
-    width: var(--page-content-width);
+    display: inline-block;
+    width: 100%;
 }
 
 a{

@@ -8,7 +8,6 @@ const useChatSelectedUserMessages = () => {
 		selectSelectedUserMessages(String(selectedUId), '62ea57f88c8e05124b2b9b4b')
 	);
 	if (!selectedUId) return;
-	console.log(messages);
 
 	return messages;
 };

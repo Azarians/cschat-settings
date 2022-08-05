@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { SIDE_MENU_OPTIONS } from '../../helpers/constants/sideMenu';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -9,6 +9,8 @@ import styles from './styles.module.css';
 type T_Props = {};
 
 const SideMenu: FC<T_Props> = () => {
+	const urlParams = useParams();
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.wrapper}>
@@ -27,8 +29,11 @@ const SideMenu: FC<T_Props> = () => {
 						>
 							<Button
 								size='small'
-								sx={{ minWidth: 'unset' }}
+								sx={{ minWidth: 'unset', padding: '4px 5px' }}
 								color={color}
+								variant={
+									urlParams['*']?.includes(String(path)) ? 'contained' : undefined
+								}
 							>
 								{label}
 							</Button>

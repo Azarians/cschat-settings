@@ -1,0 +1,20 @@
+.app-content .MuiTypography-root:not(.MuiLink-root) {
+    color: #2b5672
+}
+
+.app-content .MuiLink-root{
+    cursor: pointer;
+    font-size: 0.877rem;
+}
+
+.app-content .MuiListItemIcon-root{
+    min-width: 38px;
+}
+
+.app-content .MuiButton-root{
+    font-weight: 400;    
+}
+
+.app-content .MuiSvgIcon-root{
+    font-size: 1.3rem;
+}

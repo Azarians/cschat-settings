@@ -4,13 +4,18 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { SideMenu } from './components/sideMenu/SideMenu';
 import { APP_PATHS } from './helpers/constants/commons';
 import { Messenger, UsersSelector } from './pages/chat/Main';
+import Design from './pages/design/Main';
+import Display from './pages/display/Main';
 import { Localize } from './pages/localize/Main';
 import { Main } from './pages/main/Main';
+import Security from './pages/security/Main';
 import { Support } from './pages/support/Main';
+import Texts from './pages/texts/Main';
 import { Upgrade } from './pages/upgrade/Main';
 import { selectHasRequestsInProcess } from './store/reducers/loader/selectors';
 import { authorizeChatRequested } from './store/sagas/chat/actionCreators';
 import './assets/css/globals.css';
+import './assets/css/material.css';
 
 type T_Props = {};
 
@@ -41,10 +46,6 @@ const App: FC<T_Props> = () => {
 									path={APP_PATHS.main}
 									element={<Main />}
 								/>
-								<Route
-									path={APP_PATHS.localize}
-									element={<Localize />}
-								/>
 								<Route path={APP_PATHS.chat}>
 									<Route
 										index
@@ -55,6 +56,26 @@ const App: FC<T_Props> = () => {
 										element={<Messenger />}
 									/>
 								</Route>
+								<Route
+									path={APP_PATHS.localize}
+									element={<Localize />}
+								/>
+								<Route
+									path={APP_PATHS.security}
+									element={<Security />}
+								/>
+								<Route
+									path={APP_PATHS.display}
+									element={<Display />}
+								/>
+								<Route
+									path={APP_PATHS.design}
+									element={<Design />}
+								/>
+								<Route
+									path={APP_PATHS.texts}
+									element={<Texts />}
+								/>
 								<Route
 									path={APP_PATHS.support}
 									element={<Support />}
