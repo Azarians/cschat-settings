@@ -30,4 +30,24 @@ const LANGUAGES_LIST = {
 
 const TIME_FORMAT_TYPES = ['am/pm', '24h'] as const;
 
-export { LANGUAGES_LIST, TIME_FORMAT_TYPES };
+const AUTHORIZATION_FIELD_NAMES = ['firstName', 'lastName', 'email'] as const;
+
+const AUTHORIZATION_FIELDS = [
+	{
+		name: AUTHORIZATION_FIELD_NAMES[0],
+		label: 'First Name',
+		id: 0
+	},
+	{
+		name: AUTHORIZATION_FIELD_NAMES[1],
+		label: 'Last Name',
+		id: 1
+	},
+	{
+		name: AUTHORIZATION_FIELD_NAMES[2],
+		label: 'Email Address',
+		id: 2
+	}
+];
+
+export { LANGUAGES_LIST, TIME_FORMAT_TYPES, AUTHORIZATION_FIELDS, AUTHORIZATION_FIELD_NAMES };

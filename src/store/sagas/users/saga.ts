@@ -9,13 +9,13 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 function* SWO_GetUsers({ payload }: T_getUsersRequested) {
 	try {
-		yield put(setLoader(LOADER_IDS.getMessages, true));
+		yield put(setLoader(LOADER_IDS.getUsers, true));
 
 		const users: T_User[] = yield call(R_getUsers, payload.chatId);
 
 		yield put(getUsersSucceeded(users));
 
-		yield put(setLoader(LOADER_IDS.getMessages, false));
+		yield put(setLoader(LOADER_IDS.getUsers, false));
 	} catch (e) {
 		console.log(e);
 	}

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { SIDE_MENU_OPTIONS } from '../../helpers/constants/sideMenu';
+import { SIDE_MENU_OPTIONS } from './../../helpers/constants/sideMenu';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Divider from '@mui/material/Divider';

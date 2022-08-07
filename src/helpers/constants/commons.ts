@@ -7,18 +7,19 @@ const APP_ID = '649b60a0-eb22';
 const APP_PATHS = {
 	main: 'main',
 	localize: 'localize',
-	chat: 'chat',
 	support: 'support',
 	upgrade: 'upgrade',
 	security: 'security',
 	display: 'display',
 	design: 'design',
-	texts: 'texts'
+	texts: 'texts',
+	authorizationRules: 'authorizationRules',
+	blackList: 'blackList'
 } as const;
 
 const CONNECTION_STATUSES = ['online', 'offline'] as const;
 
-const VISIBILITY_TYPES = ['private', 'group'];
+const VISIBILITY_TYPES = ['private', 'group'] as const;
 
 const SITE_LANGUAGE = getUrlParameter('lang') || window.Wix.Utils.getLocale() || 'en';
 

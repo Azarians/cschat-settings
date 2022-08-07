@@ -16,9 +16,9 @@ function* SWO_AuthorizeChat() {
 
 		yield put(authorizeChatSucceeded(chat));
 
-		const charRoomIds = chat.chatRooms.map((chatRoom) => chatRoom._id);
+		// const charRoomIds = chat.chatRooms.map((chatRoom) => chatRoom._id);
 
-		yield put(authorizeAdminRequested(chat._id, charRoomIds));
+		yield put(authorizeAdminRequested(chat._id));
 
 		yield put(setLoader(LOADER_IDS.authorizeChat, false));
 	} catch (e) {

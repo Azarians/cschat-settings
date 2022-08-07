@@ -1,7 +1,7 @@
 const LOADER_IDS = {
 	authorizeChat: 'authorizeChat',
 	authorizeAdmin: 'authorizeAdmin',
-	getMessages: 'getMessages'
+	getUsers: 'getUsers'
 } as const;
 
 export { LOADER_IDS };

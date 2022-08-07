@@ -5,6 +5,7 @@
 .app-content .MuiLink-root{
     cursor: pointer;
     font-size: 0.877rem;
+    color: #1976d2
 }
 
 .app-content .MuiListItemIcon-root{

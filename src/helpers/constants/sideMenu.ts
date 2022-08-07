@@ -7,53 +7,48 @@ const SIDE_MENU_OPTIONS = [
 		id: 0
 	},
 	{
-		label: 'Chat',
-		path: APP_PATHS.chat,
-		id: 1
-	},
-	{
 		label: 'Localize',
 		path: APP_PATHS.localize,
-		id: 2
+		id: 1
 	},
 	{
 		label: 'Security',
 		path: APP_PATHS.security,
-		id: 3
+		id: 2
 	},
 	{
 		type: 'divider',
-		id: 4
+		id: 3
 	},
 	{
 		label: 'Display',
 		path: APP_PATHS.display,
-		id: 5
+		id: 4
 	},
 	{
 		label: 'Design',
 		path: APP_PATHS.design,
-		id: 6
+		id: 5
 	},
 	{
 		label: 'Texts',
 		path: APP_PATHS.texts,
-		id: 7
+		id: 6
 	},
 	{
 		type: 'divider',
-		id: 8
+		id: 7
 	},
 	{
 		label: 'Support',
 		path: APP_PATHS.support,
-		id: 9
+		id: 8
 	},
 	{
 		label: 'Upgrade',
 		path: APP_PATHS.upgrade,
 		color: 'secondary' as const,
-		id: 10
+		id: 9
 	}
 ];
 

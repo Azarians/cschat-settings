@@ -1,27 +1,24 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import SectionHeader from '../../components/sectionHeader/SectionHeader';
-import { TranslatedText } from '../../components/translatedText/TranslatedText';
-// import { SITE_LANGUAGE } from '../../helpers/constants/commons';
-import { LANGUAGES_LIST, TIME_FORMAT_TYPES } from '../../helpers/constants/settings';
-import { T_Language, T_Settings, T_TimeFormat } from '../../helpers/types/settings';
-import { updateSettingsParams } from '../../store/reducers/settings/actionCreators';
+import SectionHeader from './../../components/sectionHeader/SectionHeader';
+import { TranslatedText } from './../../components/translatedText/TranslatedText';
+import { LANGUAGES_LIST, TIME_FORMAT_TYPES } from './../../helpers/constants/settings';
+import { T_Language, T_Settings, T_TimeFormat } from './../../helpers/types/settings';
+import { updateSettingsParams } from './../../store/reducers/settings/actionCreators';
 import {
 	selectLanguage,
 	selectTimeFormat,
 	selectTranslateIntoSiteLanguage
-} from '../../store/reducers/settings/selectors';
-import {
-	Autocomplete,
-	Divider,
-	FormControlLabel,
-	Stack,
-	Switch,
-	TextField,
-	ToggleButton,
-	ToggleButtonGroup
-} from '@mui/material';
-import { Box } from '@mui/system';
+} from './../../store/reducers/settings/selectors';
+import Autocomplete from '@mui/material/Autocomplete';
+import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Stack from '@mui/material/Stack';
+import Switch from '@mui/material/Switch';
+import TextField from '@mui/material/TextField';
+import ToggleButton from '@mui/material/ToggleButton';
+import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 type T_Props = {};
 
@@ -43,7 +40,6 @@ const Localize: FC<T_Props> = () => {
 			<Stack
 				spacing={2}
 				padding={2}
-				paddingTop={2.4}
 			>
 				<FormControlLabel
 					control={

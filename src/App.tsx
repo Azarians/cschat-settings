@@ -1,19 +1,20 @@
 import React, { FC, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { Loader } from './components/loader/Loader';
 import { SideMenu } from './components/sideMenu/SideMenu';
 import { APP_PATHS } from './helpers/constants/commons';
-import { Messenger, UsersSelector } from './pages/chat/Main';
 import { Design } from './pages/design/Main';
 import { Display } from './pages/display/Main';
 import { Localize } from './pages/localize/Main';
 import { Main } from './pages/main/Main';
-import { Security } from './pages/security/Main';
+import { AuthorizationRules, BlackList, Security } from './pages/security/Main';
 import { Support } from './pages/support/Main';
 import { Texts } from './pages/texts/Main';
 import { Upgrade } from './pages/upgrade/Main';
 import { selectHasRequestsInProcess } from './store/reducers/loader/selectors';
 import { authorizeChatRequested } from './store/sagas/chat/actionCreators';
+import { CircularProgress } from '@mui/material';
 import './assets/css/globals.css';
 import './assets/css/material.css';
 
@@ -27,11 +28,11 @@ const App: FC<T_Props> = () => {
 		dispatch(authorizeChatRequested());
 	}, []);
 
-	if (hasRequestsInProcess) return <>Loading...</>;
+	if (hasRequestsInProcess) return <Loader />;
 
 	return (
 		<BrowserRouter>
-			<Suspense fallback='Loading...'>
+			<Suspense fallback={<CircularProgress />}>
 				<div className='app-content'>
 					<Routes>
 						<Route
@@ -46,24 +47,24 @@ const App: FC<T_Props> = () => {
 									path={APP_PATHS.main}
 									element={<Main />}
 								/>
-								<Route path={APP_PATHS.chat}>
-									<Route
-										index
-										element={<UsersSelector />}
-									/>
-									<Route
-										path=':userId'
-										element={<Messenger />}
-									/>
-								</Route>
 								<Route
 									path={APP_PATHS.localize}
 									element={<Localize />}
 								/>
-								<Route
-									path={APP_PATHS.security}
-									element={<Security />}
-								/>
+								<Route path={APP_PATHS.security}>
+									<Route
+										index
+										element={<Security />}
+									/>
+									<Route
+										path={APP_PATHS.authorizationRules}
+										element={<AuthorizationRules />}
+									/>
+									<Route
+										path={APP_PATHS.blackList}
+										element={<BlackList />}
+									/>
+								</Route>
 								<Route
 									path={APP_PATHS.display}
 									element={<Display />}

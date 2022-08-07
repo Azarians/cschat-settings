@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
-import { TranslatedText } from '../../components/translatedText/TranslatedText';
-import { openBillingPage } from '../../helpers/functions/commons';
 import UpgradeImage from './../../assets/images/upgrade.webp';
-import { Box, Stack, Typography } from '@mui/material';
+import { TranslatedText } from './../../components/translatedText/TranslatedText';
+import { openBillingPage } from './../../helpers/functions/commons';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 
 type T_Props = {};
 
