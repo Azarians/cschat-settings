@@ -19,3 +19,7 @@
 .app-content .MuiSvgIcon-root{
     font-size: 1.3rem;
 }
+
+.app-content .MuiFormControlLabel-labelPlacementTop .MuiFormControlLabel-label{
+    margin-bottom: 4px;
+}

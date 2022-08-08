@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Divider, ListItemButton, ListItemText } from '@mui/material';
 import { Box } from '@mui/system';
 
@@ -15,7 +15,7 @@ const SectionNavigator: FC<T_Props> = ({ children, hideTopBorder, hideBottomBord
 			{!hideTopBorder && <Divider />}
 			<ListItemButton>
 				<ListItemText primary={children} />
-				<ArrowForwardIosIcon color='primary' />
+				<KeyboardArrowRightIcon color='primary' />
 			</ListItemButton>
 			{!hideBottomBorder && <Divider />}
 		</Box>

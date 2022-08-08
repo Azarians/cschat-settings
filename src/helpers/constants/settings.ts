@@ -50,4 +50,31 @@ const AUTHORIZATION_FIELDS = [
 	}
 ];
 
-export { LANGUAGES_LIST, TIME_FORMAT_TYPES, AUTHORIZATION_FIELDS, AUTHORIZATION_FIELD_NAMES };
+const BLACK_LIST_SECTIONS = [
+	{
+		id: 0,
+		label: 'Emails List',
+		content:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget.'
+	},
+	{
+		id: 1,
+		label: 'Countries List',
+		content:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget.'
+	},
+	{
+		id: 2,
+		label: 'IPs List',
+		content:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget.'
+	}
+];
+
+export {
+	LANGUAGES_LIST,
+	TIME_FORMAT_TYPES,
+	AUTHORIZATION_FIELDS,
+	AUTHORIZATION_FIELD_NAMES,
+	BLACK_LIST_SECTIONS
+};

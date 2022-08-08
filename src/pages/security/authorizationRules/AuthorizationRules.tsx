@@ -92,12 +92,13 @@ const AuthorizationRules: FC<T_Props> = () => {
 										disabled={!currentFiled.enabled}
 									/>
 									<Box
-										onClick={() =>
+										onClick={() => {
+											if (!currentFiled.enabled) return;
 											updateField({
 												...currentFiled,
 												required: !currentFiled.required
-											})
-										}
+											});
+										}}
 										margin='0 0 -8px 12px'
 										sx={{ cursor: 'pointer' }}
 									>
@@ -108,6 +109,7 @@ const AuthorizationRules: FC<T_Props> = () => {
 													: 'Make required'
 											}
 											placement='top'
+											disableHoverListener={!currentFiled.enabled}
 										>
 											<Typography
 												variant='h5'
