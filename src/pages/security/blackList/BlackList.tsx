@@ -16,7 +16,10 @@ type T_Props = {};
 
 const accordionStyles = {
 	'border-bottom': (theme: Theme) => `1px solid ${theme.palette.divider}`,
-	'&:first-child': { 'border-bottom': 'unset' },
+	'.MuiPaper-root:not(.Mui-expanded) &': {
+		'border-bottom-color': 'transparent',
+		'transition': 'border-bottom-color 0.3s'
+	},
 	':before': { display: 'none' },
 	'boxShadow': 'unset'
 };
@@ -32,7 +35,7 @@ const BlackList: FC<T_Props> = () => {
 			>
 				<TranslatedText>Black List</TranslatedText>
 			</SectionHeader>
-			{BLACK_LIST_SECTIONS.map(({ id, label, content }) => (
+			{BLACK_LIST_SECTIONS.map(({ id, label, Content }) => (
 				<Accordion
 					sx={accordionStyles}
 					disableGutters
@@ -48,7 +51,7 @@ const BlackList: FC<T_Props> = () => {
 						</Typography>
 					</AccordionSummary>
 					<AccordionDetails>
-						<Typography>{content}</Typography>
+						<Content />
 					</AccordionDetails>
 				</Accordion>
 			))}

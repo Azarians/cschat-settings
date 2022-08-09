@@ -1,3 +1,7 @@
+import { Countries } from '../../pages/security/blackList/sections/Countries';
+import { Emails } from '../../pages/security/blackList/sections/Emails';
+import { IPs } from '../../pages/security/blackList/sections/IPs';
+
 const LANGUAGES_LIST = {
 	'en': { id: 0, value: 'English', code: 'en' },
 	'da': { id: 1, value: 'Danish', code: 'da' },
@@ -54,20 +58,17 @@ const BLACK_LIST_SECTIONS = [
 	{
 		id: 0,
 		label: 'Emails List',
-		content:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget.'
+		Content: Emails
 	},
 	{
 		id: 1,
 		label: 'Countries List',
-		content:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget.'
+		Content: Countries
 	},
 	{
 		id: 2,
 		label: 'IPs List',
-		content:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendissemalesuada lacus ex, sit amet blandit leo lobortis eget.'
+		Content: IPs
 	}
 ];
 

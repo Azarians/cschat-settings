@@ -4,7 +4,7 @@ import SectionHeader from './../../../components/sectionHeader/SectionHeader';
 import { TranslatedText } from './../../../components/translatedText/TranslatedText';
 import { AUTHORIZATION_FIELDS } from './../../../helpers/constants/settings';
 import { T_AuthorizationField } from './../../../helpers/types/settings';
-import { updateSettingsParams } from './../../../store/reducers/settings/actionCreators';
+import { updateAuthorization } from './../../../store/reducers/settings/actionCreators';
 import { selectAuthorization } from './../../../store/reducers/settings/selectors';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -24,13 +24,10 @@ const AuthorizationRules: FC<T_Props> = () => {
 
 	const updateField = (currentFiled: T_AuthorizationField) => {
 		dispatch(
-			updateSettingsParams({
-				authorization: {
-					...authorization,
-					fields: {
-						...authorization.fields,
-						[currentFiled.name]: currentFiled
-					}
+			updateAuthorization({
+				fields: {
+					...authorization.fields,
+					[currentFiled.name]: currentFiled
 				}
 			})
 		);
@@ -51,11 +48,8 @@ const AuthorizationRules: FC<T_Props> = () => {
 							checked={authorization.enabled}
 							onChange={(e) =>
 								dispatch(
-									updateSettingsParams({
-										authorization: {
-											...authorization,
-											enabled: e.target.checked
-										}
+									updateAuthorization({
+										enabled: e.target.checked
 									})
 								)
 							}

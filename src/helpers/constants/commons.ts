@@ -23,4 +23,15 @@ const VISIBILITY_TYPES = ['private', 'group'] as const;
 
 const SITE_LANGUAGE = getUrlParameter('lang') || window.Wix.Utils.getLocale() || 'en';
 
-export { SITE_ID, APP_PATHS, CONNECTION_STATUSES, VISIBILITY_TYPES, APP_ID, SITE_LANGUAGE };
+const EMAIL_REG_EXP =
+	/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+export {
+	SITE_ID,
+	APP_PATHS,
+	CONNECTION_STATUSES,
+	VISIBILITY_TYPES,
+	APP_ID,
+	SITE_LANGUAGE,
+	EMAIL_REG_EXP
+};

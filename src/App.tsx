@@ -15,6 +15,7 @@ import { Upgrade } from './pages/upgrade/Main';
 import { selectHasRequestsInProcess } from './store/reducers/loader/selectors';
 import { authorizeChatRequested } from './store/sagas/chat/actionCreators';
 import { CircularProgress } from '@mui/material';
+import { ActionCreators } from 'redux-undo';
 import './assets/css/globals.css';
 import './assets/css/material.css';
 
@@ -26,6 +27,20 @@ const App: FC<T_Props> = () => {
 
 	useEffect(() => {
 		dispatch(authorizeChatRequested());
+
+		const KeyPress = (event: any) => {
+			const { keyCode, ctrlKey } = event;
+
+			if (keyCode === 26 && ctrlKey) {
+				dispatch(ActionCreators.undo());
+			} else if (keyCode === 25) {
+				dispatch(ActionCreators.redo());
+			}
+		};
+
+		document.addEventListener('keypress', KeyPress);
+
+		return () => document.removeEventListener('keypress', KeyPress);
 	}, []);
 
 	if (hasRequestsInProcess) return <Loader />;

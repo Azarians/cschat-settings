@@ -17,10 +17,17 @@ export type T_Settings = {
 	language: T_Language;
 	translateIntoSiteLanguage: boolean;
 	timeFormat: T_TimeFormat;
-	authorization: {
-		enabled: boolean;
-		fields: {
-			[key in T_AuthorizationFieldName]: T_AuthorizationField;
+	security: {
+		blackList: {
+			emails: string[];
+			countries: string[];
+			ips: string[];
+		};
+		authorization: {
+			enabled: boolean;
+			fields: {
+				[key in T_AuthorizationFieldName]: T_AuthorizationField;
+			};
 		};
 	};
 };

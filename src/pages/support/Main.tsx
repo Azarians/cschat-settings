@@ -30,7 +30,10 @@ const Support: FC<T_Props> = () => {
 							<MailOutlinedIcon color='primary' />
 						</ListItemIcon>
 						<ListItemText>
-							<Link underline='hover'>
+							<Link
+								underline='hover'
+								href={`mailto:${process.env.REACT_APP_SUPPORT_EMAIL}`}
+							>
 								<TranslatedText>Support E-mail</TranslatedText>
 							</Link>
 						</ListItemText>
