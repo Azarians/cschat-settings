@@ -12,11 +12,16 @@ const selectBLackListEmails = (
 	state: T_RootState
 ): T_SettingsState['security']['blackList']['emails'] =>
 	state.settings.present.security.blackList.emails;
+const selectBLackListCountries = (
+	state: T_RootState
+): T_SettingsState['security']['blackList']['countries'] =>
+	state.settings.present.security.blackList.countries;
 
 export {
 	selectLanguage,
 	selectTranslateIntoSiteLanguage,
 	selectTimeFormat,
 	selectAuthorization,
-	selectBLackListEmails
+	selectBLackListEmails,
+	selectBLackListCountries
 };

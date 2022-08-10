@@ -1,6 +1,6 @@
-import { Countries } from '../../pages/security/blackList/sections/Countries';
-import { Emails } from '../../pages/security/blackList/sections/Emails';
-import { IPs } from '../../pages/security/blackList/sections/IPs';
+import { Countries } from '../../components/blackListSections/Countries';
+import { Emails } from '../../components/blackListSections/Emails';
+import { IPs } from '../../components/blackListSections/IPs';
 
 const LANGUAGES_LIST = {
 	'en': { id: 0, value: 'English', code: 'en' },

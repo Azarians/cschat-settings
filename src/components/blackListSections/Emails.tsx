@@ -1,11 +1,12 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { TranslatedText } from '../../../../components/translatedText/TranslatedText';
-import { EMAIL_REG_EXP } from '../../../../helpers/constants/commons';
-import { updateBlackList } from '../../../../store/reducers/settings/actionCreators';
-import { selectBLackListEmails } from '../../../../store/reducers/settings/selectors';
+import { TranslatedText } from '../../components/translatedText/TranslatedText';
+import { EMAIL_REG_EXP } from '../../helpers/constants/commons';
+import { updateBlackList } from '../../store/reducers/settings/actionCreators';
+import { selectBLackListEmails } from '../../store/reducers/settings/selectors';
+import { ChipList } from '../chipList/ChipList';
 import BlockIcon from '@mui/icons-material/Block';
-import { Box, Chip, Divider, IconButton, TextField, Tooltip, Typography } from '@mui/material';
+import { Divider, IconButton, TextField, Tooltip } from '@mui/material';
 import Stack from '@mui/material/Stack';
 
 type T_Props = {};
@@ -33,13 +34,16 @@ const Emails: FC<T_Props> = () => {
 		setNewEmail('');
 	};
 
-	const unblockEmail = (email: string) => {
-		dispatch(
-			updateBlackList({
-				emails: emails.filter((e) => e !== email)
-			})
-		);
-	};
+	const unblockEmail = useCallback(
+		(email: string) => {
+			dispatch(
+				updateBlackList({
+					emails: emails.filter((e) => e !== email)
+				})
+			);
+		},
+		[emails]
+	);
 
 	const highlightEmail = (email: string) => {
 		setEmailToHighlight(email);
@@ -94,38 +98,12 @@ const Emails: FC<T_Props> = () => {
 			{!!emails.length && (
 				<>
 					<Divider />
-					<Stack>
-						<Typography
-							variant='body2'
-							gutterBottom
-						>
-							<TranslatedText>Blocked Emails</TranslatedText>
-						</Typography>
-						<Box
-							display='flex'
-							flexWrap='wrap'
-						>
-							{emails.map((email) => {
-								const isHighlighted = emailToHighlight === email;
-								return (
-									<Box
-										marginRight={1}
-										marginBottom={1}
-										key={email}
-									>
-										<Chip
-											label={email}
-											size='small'
-											variant={isHighlighted ? 'filled' : 'outlined'}
-											key={email + isHighlighted}
-											sx={{ border: '1px solid #bdbdbd' }}
-											onDelete={() => unblockEmail(email)}
-										/>
-									</Box>
-								);
-							})}
-						</Box>
-					</Stack>
+					<ChipList
+						list={emails}
+						highlighedElement={emailToHighlight}
+						onRemoveClick={unblockEmail}
+						label='Blocked Emails'
+					/>
 				</>
 			)}
 		</Stack>

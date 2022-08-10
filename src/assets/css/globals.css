@@ -23,6 +23,7 @@ body,
 .page-wrapper{
     display: inline-block;
     width: 100%;
+    overflow-y: auto;
 }
 
 a, 
