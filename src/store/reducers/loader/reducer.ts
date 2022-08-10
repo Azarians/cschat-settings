@@ -5,7 +5,8 @@ import { T_LoaderReducerAction, T_LoaderState } from './types';
 const initialState: T_LoaderState = {
 	[LOADER_IDS.authorizeChat]: true,
 	[LOADER_IDS.authorizeAdmin]: true,
-	[LOADER_IDS.getUsers]: true
+	[LOADER_IDS.getUsers]: true,
+	[LOADER_IDS.updateSettings]: false
 };
 
 const loaderReducer = (state = initialState, { type, payload }: T_LoaderReducerAction) => {

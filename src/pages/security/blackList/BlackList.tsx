@@ -41,6 +41,7 @@ const BlackList: FC<T_Props> = () => {
 					disableGutters
 					expanded={expanded === id}
 					onChange={() => setExpanded(expanded === id ? null : id)}
+					key={id}
 				>
 					<AccordionSummary
 						expandIcon={<ExpandMoreIcon color='primary' />}

@@ -19,15 +19,15 @@ const Emails: FC<T_Props> = () => {
 	const dispatch = useDispatch();
 
 	const blockEmail = () => {
-		if (!newEmail.trim()) return;
-		if (!EMAIL_REG_EXP.test(newEmail)) return setIsEmailInvalid(true);
-		if (isEmailInvalid) setIsEmailInvalid(false);
-		if (emails.includes(newEmail)) {
-			highlightEmail(newEmail);
+		const emailToAdd = newEmail.trim();
+		if (!emailToAdd) return;
+		if (!EMAIL_REG_EXP.test(emailToAdd)) return setIsEmailInvalid(true);
+		if (emails.includes(emailToAdd)) {
+			highlightEmail(emailToAdd);
 		} else {
 			dispatch(
 				updateBlackList({
-					emails: [...emails, newEmail]
+					emails: [...emails, emailToAdd]
 				})
 			);
 		}
@@ -72,7 +72,7 @@ const Emails: FC<T_Props> = () => {
 						value={newEmail}
 						onChange={(e) => {
 							const { value } = e.target;
-							if (value === '' && isEmailInvalid) setIsEmailInvalid(false);
+							if (isEmailInvalid) setIsEmailInvalid(false);
 							setNewEmail(value);
 						}}
 						onBlur={blockEmail}
@@ -84,12 +84,7 @@ const Emails: FC<T_Props> = () => {
 						})}
 					/>
 					<Tooltip title={<TranslatedText>Block Email</TranslatedText>}>
-						<IconButton
-							sx={{
-								width: '40px',
-								height: '40px'
-							}}
-						>
+						<IconButton sx={{ width: '40px', height: '40px' }}>
 							<BlockIcon color='primary' />
 						</IconButton>
 					</Tooltip>

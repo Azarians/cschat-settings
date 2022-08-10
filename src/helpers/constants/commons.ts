@@ -25,6 +25,8 @@ const SITE_LANGUAGE = getUrlParameter('lang') || window.Wix.Utils.getLocale() ||
 
 const EMAIL_REG_EXP =
 	/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+const IP_REG_EXP =
+	/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
 export {
 	SITE_ID,
@@ -33,5 +35,6 @@ export {
 	VISIBILITY_TYPES,
 	APP_ID,
 	SITE_LANGUAGE,
-	EMAIL_REG_EXP
+	EMAIL_REG_EXP,
+	IP_REG_EXP
 };

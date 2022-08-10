@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { Loader } from './components/loader/Loader';
 import { SideMenu } from './components/sideMenu/SideMenu';
 import { APP_PATHS } from './helpers/constants/commons';
+import { useSettingsAutoSave } from './hooks/useSettingsAutoSave';
+import { useUndoRedoCHanges } from './hooks/useUndoRedoChanges';
 import { Design } from './pages/design/Main';
 import { Display } from './pages/display/Main';
 import { Localize } from './pages/localize/Main';
@@ -12,10 +14,9 @@ import { AuthorizationRules, BlackList, Security } from './pages/security/Main';
 import { Support } from './pages/support/Main';
 import { Texts } from './pages/texts/Main';
 import { Upgrade } from './pages/upgrade/Main';
-import { selectHasRequestsInProcess } from './store/reducers/loader/selectors';
+import { selectShowAppLoader } from './store/reducers/loader/selectors';
 import { authorizeChatRequested } from './store/sagas/chat/actionCreators';
 import { CircularProgress } from '@mui/material';
-import { ActionCreators } from 'redux-undo';
 import './assets/css/globals.css';
 import './assets/css/material.css';
 
@@ -23,27 +24,16 @@ type T_Props = {};
 
 const App: FC<T_Props> = () => {
 	const dispatch = useDispatch();
-	const hasRequestsInProcess = useSelector(selectHasRequestsInProcess);
+	const showLoader = useSelector(selectShowAppLoader);
+
+	useSettingsAutoSave();
+	useUndoRedoCHanges();
 
 	useEffect(() => {
 		dispatch(authorizeChatRequested());
-
-		const KeyPress = (event: any) => {
-			const { keyCode, ctrlKey } = event;
-
-			if (keyCode === 26 && ctrlKey) {
-				dispatch(ActionCreators.undo());
-			} else if (keyCode === 25) {
-				dispatch(ActionCreators.redo());
-			}
-		};
-
-		document.addEventListener('keypress', KeyPress);
-
-		return () => document.removeEventListener('keypress', KeyPress);
 	}, []);
 
-	if (hasRequestsInProcess) return <Loader />;
+	if (showLoader) return <Loader />;
 
 	return (
 		<BrowserRouter>

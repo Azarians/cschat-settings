@@ -78,7 +78,8 @@ const Countries: FC<T_Props> = () => {
 						label={<TranslatedText>Choose a country to Block</TranslatedText>}
 						inputProps={{
 							...params.inputProps,
-							autoComplete: 'new-password'
+							autoComplete: 'new-password',
+							name: Math.random().toString()
 						}}
 					/>
 				)}

@@ -21,7 +21,8 @@
 }
 
 .app-content .MuiFormControlLabel-labelPlacementTop .MuiFormControlLabel-label{
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    line-height: 1;
 }
 
 .app-content .MuiAccordionDetails-root{

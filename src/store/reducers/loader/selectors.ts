@@ -1,6 +1,6 @@
 import { T_RootState } from '../..';
 
-const selectHasRequestsInProcess = (state: T_RootState) =>
-	Object.values(state.loader).some((i: boolean) => i);
+const selectShowAppLoader = (state: T_RootState) =>
+	state.loader.authorizeAdmin || state.loader.authorizeChat || state.loader.getUsers;
 
-export { selectHasRequestsInProcess };
+export { selectShowAppLoader };
