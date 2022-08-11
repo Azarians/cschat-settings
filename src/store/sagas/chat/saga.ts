@@ -8,6 +8,7 @@ import { LOADER_IDS } from './../../../helpers/constants/loader';
 import { authorizeChatSucceeded } from './../../reducers/chat/actionCreators';
 import { AUTHORIZE_CHAT_REQUESTED } from './actionTypes';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
+import { ActionCreators } from 'redux-undo';
 
 function* SWO_AuthorizeChat() {
 	try {
@@ -18,6 +19,8 @@ function* SWO_AuthorizeChat() {
 		yield put(authorizeChatSucceeded(chat));
 
 		if (settings) yield put(updateSettingsParams(settings));
+
+		yield put(ActionCreators.clearHistory());
 
 		yield put(authorizeAdminRequested(chat._id));
 

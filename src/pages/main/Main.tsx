@@ -98,7 +98,10 @@ const Main: FC<T_Props> = () => {
 						</ListItemIcon>
 						<ListItemText>
 							<NavLink to={`/${APP_PATHS.security}/${APP_PATHS.blackList}`}>
-								<Link underline='hover'>
+								<Link
+									underline='hover'
+									component='span'
+								>
 									<TranslatedText>Chat Black List</TranslatedText>
 								</Link>
 							</NavLink>

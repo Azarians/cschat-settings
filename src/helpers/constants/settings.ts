@@ -57,17 +57,17 @@ const AUTHORIZATION_FIELDS = [
 const BLACK_LIST_SECTIONS = [
 	{
 		id: 0,
-		label: 'Emails List',
+		label: 'Emails',
 		Content: Emails
 	},
 	{
 		id: 1,
-		label: 'Countries List',
+		label: 'Countries',
 		Content: Countries
 	},
 	{
 		id: 2,
-		label: 'IPs List',
+		label: 'IPs',
 		Content: IPs
 	}
 ];
