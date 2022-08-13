@@ -36,6 +36,8 @@ const TIME_FORMAT_TYPES = ['am/pm', '24h'] as const;
 
 const AUTHORIZATION_FIELD_NAMES = ['firstName', 'lastName', 'email'] as const;
 
+const SHOW_AUTHORIZATION_FORM_OPTIONS = ['onOpenChat', 'onSendMessage'] as const;
+
 const AUTHORIZATION_FIELDS = [
 	{
 		name: AUTHORIZATION_FIELD_NAMES[0],
@@ -77,5 +79,6 @@ export {
 	TIME_FORMAT_TYPES,
 	AUTHORIZATION_FIELDS,
 	AUTHORIZATION_FIELD_NAMES,
-	BLACK_LIST_SECTIONS
+	BLACK_LIST_SECTIONS,
+	SHOW_AUTHORIZATION_FORM_OPTIONS
 };

@@ -1,4 +1,8 @@
-import { AUTHORIZATION_FIELD_NAMES, LANGUAGES_LIST } from './../constants/settings';
+import {
+	AUTHORIZATION_FIELD_NAMES,
+	LANGUAGES_LIST,
+	SHOW_AUTHORIZATION_FORM_OPTIONS
+} from './../constants/settings';
 
 export type T_Language = keyof typeof LANGUAGES_LIST;
 
@@ -13,6 +17,14 @@ export type T_AuthorizationField = {
 	name: T_AuthorizationFieldName;
 };
 
+export type T_Authorization = {
+	enabled: boolean;
+	fields: {
+		[key in T_AuthorizationFieldName]: T_AuthorizationField;
+	};
+	showForm: typeof SHOW_AUTHORIZATION_FORM_OPTIONS[number];
+};
+
 export type T_Settings = {
 	language: T_Language;
 	translateIntoSiteLanguage: boolean;
@@ -23,11 +35,6 @@ export type T_Settings = {
 			countries: string[];
 			ips: string[];
 		};
-		authorization: {
-			enabled: boolean;
-			fields: {
-				[key in T_AuthorizationFieldName]: T_AuthorizationField;
-			};
-		};
+		authorization: T_Authorization;
 	};
 };

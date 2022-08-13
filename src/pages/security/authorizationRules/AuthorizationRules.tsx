@@ -2,10 +2,14 @@ import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SectionHeader from './../../../components/sectionHeader/SectionHeader';
 import { TranslatedText } from './../../../components/translatedText/TranslatedText';
-import { AUTHORIZATION_FIELDS } from './../../../helpers/constants/settings';
-import { T_AuthorizationField } from './../../../helpers/types/settings';
+import {
+	AUTHORIZATION_FIELDS,
+	SHOW_AUTHORIZATION_FORM_OPTIONS
+} from './../../../helpers/constants/settings';
+import { T_Authorization, T_AuthorizationField } from './../../../helpers/types/settings';
 import { updateAuthorization } from './../../../store/reducers/settings/actionCreators';
 import { selectAuthorization } from './../../../store/reducers/settings/selectors';
+import { Radio, RadioGroup } from '@mui/material';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import Divider from '@mui/material/Divider';
@@ -22,15 +26,16 @@ const AuthorizationRules: FC<T_Props> = () => {
 	const authorization = useSelector(selectAuthorization);
 	const dispatch = useDispatch();
 
+	const updateAuthRules = (params: Partial<T_Authorization>) =>
+		dispatch(updateAuthorization(params));
+
 	const updateField = (currentFiled: T_AuthorizationField) => {
-		dispatch(
-			updateAuthorization({
-				fields: {
-					...authorization.fields,
-					[currentFiled.name]: currentFiled
-				}
-			})
-		);
+		updateAuthRules({
+			fields: {
+				...authorization.fields,
+				[currentFiled.name]: currentFiled
+			}
+		});
 	};
 
 	return (
@@ -46,29 +51,23 @@ const AuthorizationRules: FC<T_Props> = () => {
 					control={
 						<Switch
 							checked={authorization.enabled}
-							onChange={(e) =>
-								dispatch(
-									updateAuthorization({
-										enabled: e.target.checked
-									})
-								)
-							}
+							onChange={(e) => updateAuthRules({ enabled: e.target.checked })}
 						/>
 					}
 					label={<TranslatedText>Require authorization</TranslatedText>}
 					labelPlacement='start'
-					sx={{ justifyContent: 'space-between', ml: 0, width: 'calc(100% + 11px)' }}
+					sx={{ justifyContent: 'space-between', ml: 0, width: 'calc(100% + 8px)' }}
 				/>
 				<Collapse
 					in={authorization.enabled}
-					sx={{ width: 'calc(100% + 11px)' }}
+					sx={{ width: 'calc(100% + 4px)' }}
 					timeout='auto'
 				>
 					<Stack
-						marginTop={2}
 						spacing={2}
+						pt={2}
+						pb={1}
 					>
-						<Divider />
 						{AUTHORIZATION_FIELDS.map((field) => {
 							const currentFiled = authorization.fields[field.name];
 
@@ -93,7 +92,7 @@ const AuthorizationRules: FC<T_Props> = () => {
 												required: !currentFiled.required
 											});
 										}}
-										margin='0 0 -8px 12px'
+										margin='0 4px -8px 12px'
 										sx={{ cursor: 'pointer' }}
 									>
 										<Tooltip
@@ -127,12 +126,40 @@ const AuthorizationRules: FC<T_Props> = () => {
 												enabled: e.target.checked
 											})
 										}
+										size='small'
 									/>
 								</Stack>
 							);
 						})}
 					</Stack>
 				</Collapse>
+				<Divider sx={{ mt: 1, mb: 2 }} />
+				<FormControlLabel
+					control={
+						<RadioGroup
+							value={authorization.showForm}
+							onChange={(e) =>
+								updateAuthRules({
+									showForm: e.target.value as T_Authorization['showForm']
+								})
+							}
+						>
+							<FormControlLabel
+								value={SHOW_AUTHORIZATION_FORM_OPTIONS[0]}
+								control={<Radio />}
+								label='Once they open the chat'
+							/>
+							<FormControlLabel
+								value={SHOW_AUTHORIZATION_FORM_OPTIONS[1]}
+								control={<Radio />}
+								label='After they send a message'
+							/>
+						</RadioGroup>
+					}
+					label={<TranslatedText>When do visitors see the form?</TranslatedText>}
+					labelPlacement='top'
+					sx={{ alignItems: 'flex-start', mx: 0 }}
+				/>
 			</Stack>
 		</Box>
 	);

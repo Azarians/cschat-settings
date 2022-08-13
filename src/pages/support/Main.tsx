@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import SectionHeader from '../../components/sectionHeader/SectionHeader';
 import { TranslatedText } from '../../components/translatedText/TranslatedText';
-import { openReviewModal } from '../../helpers/functions/commons';
+import { openFeedbackModal, openReviewModal } from '../../helpers/functions/commons';
 import LanguageOutlinedIcon from '@mui/icons-material/LanguageOutlined';
 import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
 import RateReviewOutlinedIcon from '@mui/icons-material/RateReviewOutlined';
@@ -53,7 +53,10 @@ const Support: FC<T_Props> = () => {
 							<RateReviewOutlinedIcon color='primary' />
 						</ListItemIcon>
 						<ListItemText>
-							<Link underline='hover'>
+							<Link
+								underline='hover'
+								onClick={openFeedbackModal}
+							>
 								<TranslatedText>Send Us Feedback</TranslatedText>
 							</Link>
 						</ListItemText>

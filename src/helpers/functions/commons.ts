@@ -23,4 +23,15 @@ const openDashboard = ({
 	);
 };
 
-export { openReviewModal, openBillingPage, openDashboard };
+const openFeedbackModal = () => {
+	window.Wix.Settings.openModal(
+		`${process.env.REACT_APP_FEEDBACK_MODAL_URL}`,
+		'77%',
+		'80%',
+		'Manage Chat',
+		() => {},
+		false
+	);
+};
+
+export { openReviewModal, openBillingPage, openDashboard, openFeedbackModal };
