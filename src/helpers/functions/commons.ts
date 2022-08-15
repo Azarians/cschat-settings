@@ -15,7 +15,7 @@ const openDashboard = ({
 	}
 	window.Wix.Settings.openModal(
 		`${process.env.REACT_APP_DASHBOARD_URL}?${params}`,
-		'77%',
+		'90%',
 		'80%',
 		'Manage Chat',
 		onClose,
