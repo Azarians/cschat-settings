@@ -66,7 +66,6 @@ const Emails: FC<T_Props> = () => {
 				>
 					<TextField
 						variant='outlined'
-						size='small'
 						fullWidth
 						label='Email address to block'
 						value={newEmail}

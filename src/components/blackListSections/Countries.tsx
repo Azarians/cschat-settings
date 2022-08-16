@@ -39,7 +39,6 @@ const Countries: FC<T_Props> = () => {
 				autoHighlight
 				getOptionLabel={(option) => option.label}
 				openOnFocus
-				size='small'
 				clearIcon={null}
 				blurOnSelect
 				value={inputValue}

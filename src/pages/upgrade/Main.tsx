@@ -38,7 +38,6 @@ const Upgrade: FC<T_Props> = () => {
 					color='secondary'
 					variant='contained'
 					onClick={openBillingPage}
-					size='small'
 				>
 					<TranslatedText>Upgrade Now</TranslatedText>
 				</Button>

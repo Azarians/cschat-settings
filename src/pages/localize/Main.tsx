@@ -70,7 +70,6 @@ const Localize: FC<T_Props> = () => {
 									fullWidth
 								/>
 							)}
-							size='small'
 							disabled={translateIntoSiteLanguage}
 							fullWidth
 						/>

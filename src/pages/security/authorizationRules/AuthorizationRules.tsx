@@ -56,7 +56,7 @@ const AuthorizationRules: FC<T_Props> = () => {
 					}
 					label={<TranslatedText>Require authorization</TranslatedText>}
 					labelPlacement='start'
-					sx={{ justifyContent: 'space-between', ml: 0, width: 'calc(100% + 8px)' }}
+					sx={{ justifyContent: 'space-between', mx: 0, width: 'calc(100% + 8px)' }}
 				/>
 				<Collapse
 					in={authorization.enabled}
@@ -80,7 +80,6 @@ const AuthorizationRules: FC<T_Props> = () => {
 									<TextField
 										label={<TranslatedText>{field.label}</TranslatedText>}
 										variant='outlined'
-										size='small'
 										fullWidth
 										disabled={!currentFiled.enabled}
 									/>

@@ -66,7 +66,6 @@ const IPs: FC<T_Props> = () => {
 				>
 					<TextField
 						variant='outlined'
-						size='small'
 						fullWidth
 						label='IP to block'
 						value={newIP}

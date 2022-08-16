@@ -35,7 +35,6 @@ const ChipList: FC<T_Props> = ({ list, highlighedElement, onRemoveClick, label }
 						>
 							<Chip
 								label={element}
-								size='small'
 								variant={isHighlighted ? 'filled' : 'outlined'}
 								key={element + isHighlighted}
 								sx={{ border: '1px solid #bdbdbd' }}

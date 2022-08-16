@@ -28,7 +28,6 @@ const SideMenu: FC<T_Props> = () => {
 							key={id}
 						>
 							<Button
-								size='small'
 								sx={{ minWidth: 'unset', padding: '4px 5px' }}
 								color={color}
 								variant={

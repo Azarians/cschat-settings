@@ -84,7 +84,6 @@ const Support: FC<T_Props> = () => {
 				</Typography>
 				<Box marginTop={2.5}>
 					<Button
-						size='small'
 						variant='contained'
 						onClick={openReviewModal}
 					>

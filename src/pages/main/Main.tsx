@@ -46,14 +46,12 @@ const Main: FC<T_Props> = () => {
 					<Button
 						variant='contained'
 						onClick={() => openDashboard({ urlParams: { page: 'home' } })}
-						size='small'
 					>
 						<TranslatedText>Manage Chat</TranslatedText>
 					</Button>
 					<Button
 						variant='outlined'
 						onClick={() => openDashboard({ urlParams: { page: 'inbox' } })}
-						size='small'
 					>
 						<TranslatedText>Open Inbox</TranslatedText>
 					</Button>
