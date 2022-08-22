@@ -1,16 +1,20 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { requestSettingsUpdate } from '../helpers/functions/settings';
 import { selectChatId } from '../store/reducers/chat/selectors';
 import { selectSettings } from '../store/reducers/settings/selectors';
-import { updateSettingsRequested } from '../store/sagas/settings/actionCreators';
+
+let isOnInitialLoad = true;
 
 const useSettingsAutoSave = () => {
 	const settings = useSelector(selectSettings);
 	const chatId = useSelector(selectChatId);
-	const dispatch = useDispatch();
 
 	useEffect(() => {
-		chatId && dispatch(updateSettingsRequested({ settings, chatId }));
+		if (chatId && !isOnInitialLoad) {
+			requestSettingsUpdate(settings);
+		}
+		isOnInitialLoad = false;
 	}, [settings, chatId]);
 };
 

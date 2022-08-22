@@ -1,5 +1,6 @@
 import { T_ResponseAuthorizeChat } from '../../../api/chat/types';
 import { APP_ID } from '../../../helpers/constants/commons';
+import { establishSocketConnection } from '../../../helpers/functions/settings';
 import { setLoader } from '../../reducers/loader/actionCreators';
 import { updateSettingsParams } from '../../reducers/settings/actionCreators';
 import { authorizeAdminRequested } from '../admin/actionCreators';
@@ -17,6 +18,8 @@ function* SWO_AuthorizeChat() {
 		const { chat, settings }: T_ResponseAuthorizeChat = yield call(R_authorizeChat, APP_ID);
 
 		yield put(authorizeChatSucceeded(chat));
+
+		establishSocketConnection({ chatId: chat._id });
 
 		if (settings) yield put(updateSettingsParams(settings));
 
