@@ -8,7 +8,7 @@ type T_establishSocketConnectionArgs = {
 };
 
 const establishSocketConnection = ({ chatId }: T_establishSocketConnectionArgs) => {
-	const ws = new WebSocket(`${process.env.REACT_APP_SOCKET_URL}?chatId=${chatId}`);
+	const ws = new WebSocket(`${process.env.REACT_APP_AUTOSAVE_SOCKET_URL}?chatId=${chatId}`);
 
 	ws.onopen = () => {
 		console.log('ws connection opened');
