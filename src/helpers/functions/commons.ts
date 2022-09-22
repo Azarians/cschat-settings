@@ -17,7 +17,7 @@ const openDashboard = ({
 		`${process.env.REACT_APP_DASHBOARD_URL}?${params}`,
 		'90%',
 		'80%',
-		'Manage Tukse Live Chat',
+		'Manage Tukse Chat',
 		onClose,
 		false
 	);
@@ -28,7 +28,7 @@ const openFeedbackModal = () => {
 		`${process.env.REACT_APP_FEEDBACK_MODAL_URL}`,
 		'77%',
 		'80%',
-		'Feedback about Tukse Live Chat',
+		'Feedback about Tukse Chat',
 		() => {},
 		false
 	);

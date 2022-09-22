@@ -26,10 +26,22 @@ const Upgrade: FC<T_Props> = () => {
 			>
 				<img
 					src={UpgradeImage}
-					style={{ width: '70%', marginBottom: '20px' }}
+					style={{ width: '70%', marginBottom: '26px' }}
 				/>
-				<Typography>
+				<Typography
+					gutterBottom
+					variant='h6'
+				>
 					<TranslatedText>Upgrade Your Plan</TranslatedText>
+				</Typography>
+				<Typography
+					variant='body2'
+					textAlign='center'
+				>
+					<TranslatedText>
+						Upgrade your plan to access more functionality, have unlimited chat rooms
+						and interlocutors, to use Tukse Chat's all strength and power.
+					</TranslatedText>
 				</Typography>
 			</Box>
 

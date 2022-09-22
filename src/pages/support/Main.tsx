@@ -79,7 +79,7 @@ const Support: FC<T_Props> = () => {
 					textAlign='center'
 				>
 					<TranslatedText>
-						Enjoying CSChat? Share your experience in the App Market.
+						Enjoying Tukse Chat? Share your experience in the App Market.
 					</TranslatedText>
 				</Typography>
 				<Box marginTop={2.5}>

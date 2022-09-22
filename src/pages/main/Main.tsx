@@ -39,7 +39,7 @@ const Main: FC<T_Props> = () => {
 				>
 					<TranslatedText>
 						Engage visitors and capture leads. Customize your chat settings, or chat
-						with site visitors via CSChat Inbox.
+						with site visitors via Tukse Chat Inbox.
 					</TranslatedText>
 				</Typography>
 				<Stack spacing={2}>
