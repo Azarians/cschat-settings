@@ -1,6 +1,16 @@
 import { T_Settings } from '../../../helpers/types/settings';
-import { UPDATE_AUTHORIZATION, UPDATE_BLACK_LIST, UPDATE_SETTINGS_PARAMS } from './actionTypes';
-import { T_updateAuthorization, T_updateBlackList, T_updateSettingsParams } from './types';
+import {
+	UPDATE_AUTHORIZATION,
+	UPDATE_BLACK_LIST,
+	UPDATE_DISPLAY_SETTINGS,
+	UPDATE_SETTINGS_PARAMS
+} from './actionTypes';
+import {
+	T_updateAuthorization,
+	T_updateBlackList,
+	T_updateSettingsParams,
+	T_updateDisplaySettings
+} from './types';
 
 const updateSettingsParams = (params: Partial<T_Settings>): T_updateSettingsParams => ({
 	type: UPDATE_SETTINGS_PARAMS,
@@ -27,4 +37,13 @@ const updateBlackList = (
 	}
 });
 
-export { updateSettingsParams, updateAuthorization, updateBlackList };
+const updateDisplaySettings = (
+	options: Partial<T_Settings['display']>
+): T_updateDisplaySettings => ({
+	type: UPDATE_DISPLAY_SETTINGS,
+	payload: {
+		options
+	}
+});
+
+export { updateSettingsParams, updateAuthorization, updateBlackList, updateDisplaySettings };

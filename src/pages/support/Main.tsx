@@ -43,7 +43,11 @@ const Support: FC<T_Props> = () => {
 							<LanguageOutlinedIcon color='primary' />
 						</ListItemIcon>
 						<ListItemText>
-							<Link underline='hover'>
+							<Link
+								underline='hover'
+								href='https://tukse.com'
+								target='_blank'
+							>
 								<TranslatedText>Our Website</TranslatedText>
 							</Link>
 						</ListItemText>

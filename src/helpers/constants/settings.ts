@@ -30,7 +30,7 @@ const LANGUAGES_LIST = {
 	'hi': { id: 24, value: 'Hindi', code: 'hi' },
 	'zh-cn': { id: 25, value: 'Chinese', code: 'zh-cn' },
 	'hu': { id: 26, value: 'Hungarian', code: 'hu' }
-};
+} as const;
 
 const TIME_FORMAT_TYPES = ['am/pm', '24h'] as const;
 
@@ -74,11 +74,17 @@ const BLACK_LIST_SECTIONS = [
 	}
 ];
 
+const CHAT_POSITIONS = ['bottomLeft', 'bottomRight'] as const;
+
+const CHAT_VISIBILITY_ON_PAGES = ['allPages', 'selectedPages'] as const;
+
 export {
 	LANGUAGES_LIST,
 	TIME_FORMAT_TYPES,
 	AUTHORIZATION_FIELDS,
 	AUTHORIZATION_FIELD_NAMES,
 	BLACK_LIST_SECTIONS,
-	SHOW_AUTHORIZATION_FORM_OPTIONS
+	SHOW_AUTHORIZATION_FORM_OPTIONS,
+	CHAT_POSITIONS,
+	CHAT_VISIBILITY_ON_PAGES
 };

@@ -33,6 +33,12 @@ const theme = createTheme({
 			defaultProps: {
 				fontSize: '0.877rem'
 			}
+		},
+		MuiToggleButtonGroup: {
+			defaultProps: {
+				size: 'small',
+				color: 'primary'
+			}
 		}
 	}
 });

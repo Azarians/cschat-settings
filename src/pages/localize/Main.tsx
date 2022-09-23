@@ -85,13 +85,11 @@ const Localize: FC<T_Props> = () => {
 						<ToggleButtonGroup
 							value={timeFormat}
 							exclusive
-							onChange={(_: any, newTimeFormat: string | null) => {
+							onChange={(_, newTimeFormat: string | null) => {
 								if (newTimeFormat === null) return;
 								update({ timeFormat: newTimeFormat as T_TimeFormat });
 							}}
-							color='primary'
 							fullWidth
-							size='small'
 						>
 							<ToggleButton value={TIME_FORMAT_TYPES[0]}>
 								<TranslatedText>AM/PM</TranslatedText>

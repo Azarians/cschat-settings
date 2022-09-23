@@ -21,6 +21,8 @@ const selectBLackListCountries = (
 	state.settings.present.security.blackList.countries;
 const selectBLackListIPs = (state: T_RootState): T_SettingsState['security']['blackList']['ips'] =>
 	state.settings.present.security.blackList.ips;
+const selectDisplaySettings = (state: T_RootState): T_SettingsState['display'] =>
+	state.settings.present.display;
 
 export {
 	selectLanguage,
@@ -31,5 +33,6 @@ export {
 	selectBLackListCountries,
 	selectBLackListIPs,
 	selectSettings,
-	selectIsSettingsChanged
+	selectIsSettingsChanged,
+	selectDisplaySettings
 };

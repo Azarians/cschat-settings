@@ -1,5 +1,7 @@
 import {
 	AUTHORIZATION_FIELD_NAMES,
+	CHAT_POSITIONS,
+	CHAT_VISIBILITY_ON_PAGES,
 	LANGUAGES_LIST,
 	SHOW_AUTHORIZATION_FORM_OPTIONS
 } from './../constants/settings';
@@ -36,5 +38,12 @@ export type T_Settings = {
 			ips: string[];
 		};
 		authorization: T_Authorization;
+	};
+	display: {
+		position: typeof CHAT_POSITIONS[number];
+		visibility: {
+			type: typeof CHAT_VISIBILITY_ON_PAGES[number];
+			selectedPages: { id: string; name: string }[];
+		};
 	};
 };
