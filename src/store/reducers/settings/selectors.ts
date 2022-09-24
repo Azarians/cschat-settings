@@ -1,3 +1,4 @@
+import { T_SitePage } from '../../../helpers/types/commons';
 import { T_Language, T_TimeFormat } from '../../../helpers/types/settings';
 import { T_RootState } from './../../index';
 import { T_SettingsState } from './types';
@@ -23,6 +24,9 @@ const selectBLackListIPs = (state: T_RootState): T_SettingsState['security']['bl
 	state.settings.present.security.blackList.ips;
 const selectDisplaySettings = (state: T_RootState): T_SettingsState['display'] =>
 	state.settings.present.display;
+const selectSelectedPageIds = (state: T_RootState): T_SitePage['pageId'][] => {
+	return state.settings.present.display.visibility.selectedPages.map((page) => page.id);
+};
 
 export {
 	selectLanguage,
@@ -34,5 +38,6 @@ export {
 	selectBLackListIPs,
 	selectSettings,
 	selectIsSettingsChanged,
-	selectDisplaySettings
+	selectDisplaySettings,
+	selectSelectedPageIds
 };

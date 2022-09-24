@@ -43,7 +43,7 @@ export type T_Settings = {
 		position: typeof CHAT_POSITIONS[number];
 		visibility: {
 			type: typeof CHAT_VISIBILITY_ON_PAGES[number];
-			selectedPages: { id: string; name: string }[];
+			selectedPages: { id: string; title: string }[];
 		};
 	};
 };

@@ -2,10 +2,16 @@ import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SectionHeader from '../../components/sectionHeader/SectionHeader';
 import { TranslatedText } from '../../components/translatedText/TranslatedText';
+import { SITE_MAP } from '../../helpers/constants/commons';
 import { CHAT_POSITIONS, CHAT_VISIBILITY_ON_PAGES } from '../../helpers/constants/settings';
+import { T_SitePage } from '../../helpers/types/commons';
 import { T_Settings } from '../../helpers/types/settings';
 import { updateDisplaySettings } from '../../store/reducers/settings/actionCreators';
-import { selectDisplaySettings } from '../../store/reducers/settings/selectors';
+import {
+	selectDisplaySettings,
+	selectSelectedPageIds
+} from '../../store/reducers/settings/selectors';
+import SubdirectoryArrowLeftIcon from '@mui/icons-material/SubdirectoryArrowLeft';
 import {
 	Box,
 	Checkbox,
@@ -23,10 +29,30 @@ import Stack from '@mui/material/Stack';
 type T_Props = {};
 
 const Display: FC<T_Props> = () => {
-	const display = useSelector(selectDisplaySettings);
+	const { position, visibility } = useSelector(selectDisplaySettings);
+	const selectedPageIds = useSelector(selectSelectedPageIds);
 	const dispatch = useDispatch();
 
-	window.Wix.getSiteInfo(console.log);
+	const updateSelectedPages = (event: React.ChangeEvent<HTMLInputElement>, page: T_SitePage) => {
+		dispatch(
+			updateDisplaySettings({
+				visibility: {
+					...visibility,
+					selectedPages: event.target.checked
+						? [
+								...visibility.selectedPages,
+								{
+									id: page.pageId,
+									title: page.title
+								}
+						  ]
+						: visibility.selectedPages.filter(
+								(selectedPage) => selectedPage.id !== page.pageId
+						  )
+				}
+			})
+		);
+	};
 
 	return (
 		<Box>
@@ -35,15 +61,26 @@ const Display: FC<T_Props> = () => {
 			</SectionHeader>
 
 			<Stack padding={2}>
-				<ToggleButtonGroup
-					value={display.position}
-					onChange={(_, position) => dispatch(updateDisplaySettings({ position }))}
-					exclusive
-					fullWidth
-				>
-					<ToggleButton value={CHAT_POSITIONS[0]}>Bottom Left</ToggleButton>
-					<ToggleButton value={CHAT_POSITIONS[1]}>Bottom Right</ToggleButton>
-				</ToggleButtonGroup>
+				<FormControlLabel
+					control={
+						<ToggleButtonGroup
+							value={position}
+							onChange={(_, position) => {
+								if (position === null) return;
+								dispatch(updateDisplaySettings({ position }));
+							}}
+							exclusive
+							fullWidth
+							sx={{ mt: 0.8 }}
+						>
+							<ToggleButton value={CHAT_POSITIONS[0]}>Bottom Left</ToggleButton>
+							<ToggleButton value={CHAT_POSITIONS[1]}>Bottom Right</ToggleButton>
+						</ToggleButtonGroup>
+					}
+					label='Choose chat position on the page.'
+					labelPlacement='top'
+					sx={{ alignItems: 'flex-start', mx: 0 }}
+				/>
 			</Stack>
 
 			<SectionHeader>
@@ -57,12 +94,12 @@ const Display: FC<T_Props> = () => {
 				<FormControlLabel
 					control={
 						<RadioGroup
-							value={display.visibility.type}
+							value={visibility.type}
 							onChange={(_, type) =>
 								dispatch(
 									updateDisplaySettings({
 										visibility: {
-											...display.visibility,
+											...visibility,
 											type: type as T_Settings['display']['visibility']['type']
 										}
 									})
@@ -87,21 +124,53 @@ const Display: FC<T_Props> = () => {
 				/>
 
 				<Collapse
-					in={display.visibility.type === CHAT_VISIBILITY_ON_PAGES[1]}
+					in={visibility.type === CHAT_VISIBILITY_ON_PAGES[1]}
 					sx={{ pt: 0.1 }}
 				>
 					<Divider />
 					<FormControlLabel
 						control={
 							<FormGroup>
-								<FormControlLabel
-									control={<Checkbox defaultChecked />}
-									label='Label'
-								/>
-								<FormControlLabel
-									control={<Checkbox />}
-									label='Disabled'
-								/>
+								{SITE_MAP.map((page) => (
+									<>
+										<FormControlLabel
+											key={page.pageId}
+											control={
+												<Checkbox
+													checked={selectedPageIds.includes(page.pageId)}
+													onChange={(e) => updateSelectedPages(e, page)}
+												/>
+											}
+											label={page.title}
+										/>
+										{page.subPages?.map((subPage) => (
+											<Box
+												alignItems='center'
+												display='flex'
+												key={subPage.pageId}
+											>
+												<SubdirectoryArrowLeftIcon
+													sx={{ transform: 'rotate(90deg)', mt: -3.5 }}
+													color='action'
+												/>
+												<FormControlLabel
+													control={
+														<Checkbox
+															checked={selectedPageIds.includes(
+																subPage.pageId
+															)}
+															onChange={(e) =>
+																updateSelectedPages(e, subPage)
+															}
+														/>
+													}
+													label={subPage.title}
+													sx={{ ml: -0.5 }}
+												/>
+											</Box>
+										))}
+									</>
+								))}
 							</FormGroup>
 						}
 						label={<TranslatedText>Select pages where to show chat.</TranslatedText>}

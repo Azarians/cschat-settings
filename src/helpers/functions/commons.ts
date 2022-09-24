@@ -2,6 +2,8 @@ const openReviewModal = window.Wix.Settings.openReviewInfo;
 
 const openBillingPage = window.Wix.Settings.openBillingPage;
 
+const getSiteMap = window.Wix.getSiteMap;
+
 const openDashboard = ({
 	urlParams,
 	onClose
@@ -54,4 +56,11 @@ const mergeDeep = (target: any, ...sources: any): object => {
 	return mergeDeep(target, ...sources);
 };
 
-export { openReviewModal, openBillingPage, openDashboard, openFeedbackModal, mergeDeep };
+export {
+	openReviewModal,
+	openBillingPage,
+	openDashboard,
+	openFeedbackModal,
+	mergeDeep,
+	getSiteMap
+};

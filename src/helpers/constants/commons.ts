@@ -1,3 +1,5 @@
+import { getSiteMap } from '../functions/commons';
+import { T_SiteMap } from '../types/commons';
 import { getUrlParameter } from 'cschat-helpers';
 
 const SITE_ID = '649b60a0-eb22-4e28-9aab-b71024838001'; //getUrlParameter('instance');
@@ -28,6 +30,9 @@ const EMAIL_REG_EXP =
 const IP_REG_EXP =
 	/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
+const SITE_MAP: T_SiteMap = [];
+getSiteMap((siteMap: T_SiteMap) => SITE_MAP.push(...siteMap));
+
 export {
 	SITE_ID,
 	APP_PATHS,
@@ -36,5 +41,6 @@ export {
 	APP_ID,
 	SITE_LANGUAGE,
 	EMAIL_REG_EXP,
-	IP_REG_EXP
+	IP_REG_EXP,
+	SITE_MAP
 };
