@@ -95,7 +95,7 @@ const Main: FC<T_Props> = () => {
 							<SecurityOutlined color='primary' />
 						</ListItemIcon>
 						<ListItemText>
-							<NavLink to={`/${APP_PATHS.security}/${APP_PATHS.blackList}`}>
+							<NavLink to={`/${APP_PATHS.security}/${APP_PATHS.security.blackList}`}>
 								<Link
 									underline='hover'
 									component='span'

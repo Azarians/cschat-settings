@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import { NavLink } from 'react-router-dom';
 import SectionHeader from '../../../components/sectionHeader/SectionHeader';
 import { SectionNavigator } from '../../../components/sectionNavigator/SectionNavigator';
 import { TranslatedText } from '../../../components/translatedText/TranslatedText';
@@ -14,16 +13,18 @@ const Security: FC<T_Props> = () => {
 			<SectionHeader hideTopBorder>
 				<TranslatedText>Chat Security</TranslatedText>
 			</SectionHeader>
-			<NavLink to={APP_PATHS.authorizationRules}>
-				<SectionNavigator hideTopBorder>
-					<TranslatedText>Authorization Rules</TranslatedText>
-				</SectionNavigator>
-			</NavLink>
-			<NavLink to={APP_PATHS.blackList}>
-				<SectionNavigator hideTopBorder>
-					<TranslatedText>Black List</TranslatedText>
-				</SectionNavigator>
-			</NavLink>
+			<SectionNavigator
+				hideTopBorder
+				to={APP_PATHS.security.authorizationRules}
+			>
+				<TranslatedText>Authorization Rules</TranslatedText>
+			</SectionNavigator>
+			<SectionNavigator
+				hideTopBorder
+				to={APP_PATHS.security.blackList}
+			>
+				<TranslatedText>Black List</TranslatedText>
+			</SectionNavigator>
 		</Stack>
 	);
 };

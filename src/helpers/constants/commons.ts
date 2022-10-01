@@ -11,12 +11,20 @@ const APP_PATHS = {
 	localize: 'localize',
 	support: 'support',
 	upgrade: 'upgrade',
-	security: 'security',
+	security: {
+		index: 'security',
+		authorizationRules: 'authorizationRules',
+		blackList: 'blackList'
+	},
 	display: 'display',
-	design: 'design',
-	texts: 'texts',
-	authorizationRules: 'authorizationRules',
-	blackList: 'blackList'
+	design: {
+		index: 'design',
+		container: 'container',
+		header: 'header',
+		messages: 'messages',
+		minimizedChat: 'minimizedChat'
+	},
+	texts: 'texts'
 } as const;
 
 const CONNECTION_STATUSES = ['online', 'offline'] as const;

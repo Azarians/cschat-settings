@@ -13,7 +13,7 @@ const SIDE_MENU_OPTIONS = [
 	},
 	{
 		label: 'Security',
-		path: APP_PATHS.security,
+		path: APP_PATHS.security.index,
 		id: 2
 	},
 	{
@@ -27,7 +27,7 @@ const SIDE_MENU_OPTIONS = [
 	},
 	{
 		label: 'Design',
-		path: APP_PATHS.design,
+		path: APP_PATHS.design.index,
 		id: 5
 	},
 	{

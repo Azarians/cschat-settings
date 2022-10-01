@@ -7,6 +7,10 @@ import { APP_PATHS } from './helpers/constants/commons';
 import { useSettingsAutoSave } from './hooks/useSettingsAutoSave';
 import { useUndoRedoCHanges } from './hooks/useUndoRedoChanges';
 import { Design } from './pages/design/Main';
+import { Container } from './pages/design/subPages/Container';
+import { Header } from './pages/design/subPages/Header';
+import { Messages } from './pages/design/subPages/Messages';
+import { MinimizedChat } from './pages/design/subPages/MinimizedChat';
 import { Display } from './pages/display/Main';
 import { Localize } from './pages/localize/Main';
 import { Main } from './pages/main/Main';
@@ -56,17 +60,17 @@ const App: FC<T_Props> = () => {
 									path={APP_PATHS.localize}
 									element={<Localize />}
 								/>
-								<Route path={APP_PATHS.security}>
+								<Route path={APP_PATHS.security.index}>
 									<Route
 										index
 										element={<Security />}
 									/>
 									<Route
-										path={APP_PATHS.authorizationRules}
+										path={APP_PATHS.security.authorizationRules}
 										element={<AuthorizationRules />}
 									/>
 									<Route
-										path={APP_PATHS.blackList}
+										path={APP_PATHS.security.blackList}
 										element={<BlackList />}
 									/>
 								</Route>
@@ -74,10 +78,28 @@ const App: FC<T_Props> = () => {
 									path={APP_PATHS.display}
 									element={<Display />}
 								/>
-								<Route
-									path={APP_PATHS.design}
-									element={<Design />}
-								/>
+								<Route path={APP_PATHS.design.index}>
+									<Route
+										index
+										element={<Design />}
+									/>
+									<Route
+										path={APP_PATHS.design.container}
+										element={<Container />}
+									/>
+									<Route
+										path={APP_PATHS.design.header}
+										element={<Header />}
+									/>
+									<Route
+										path={APP_PATHS.design.messages}
+										element={<Messages />}
+									/>
+									<Route
+										path={APP_PATHS.design.minimizedChat}
+										element={<MinimizedChat />}
+									/>
+								</Route>
 								<Route
 									path={APP_PATHS.texts}
 									element={<Texts />}
