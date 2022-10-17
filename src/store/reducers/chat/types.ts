@@ -1,5 +1,5 @@
-import { T_Chat } from '../../../helpers/types/chat';
 import { AUTHORIZE_CHAT_SUCCEEDED } from './actionTypes';
+import { T_Chat } from 'cschat-helpers';
 
 export type T_ChatState = T_Chat;
 

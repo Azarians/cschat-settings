@@ -3,9 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SectionHeader from '../../components/sectionHeader/SectionHeader';
 import { TranslatedText } from '../../components/translatedText/TranslatedText';
 import { SITE_MAP } from '../../helpers/constants/commons';
-import { CHAT_POSITIONS, CHAT_VISIBILITY_ON_PAGES } from '../../helpers/constants/settings';
 import { T_SitePage } from '../../helpers/types/commons';
-import { T_Settings } from '../../helpers/types/settings';
 import { updateDisplaySettings } from '../../store/reducers/settings/actionCreators';
 import {
 	selectDisplaySettings,
@@ -25,6 +23,7 @@ import {
 	ToggleButtonGroup
 } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import { CHAT_POSITIONS, CHAT_VISIBILITY_ON_PAGES, T_Settings } from 'cschat-helpers';
 
 type T_Props = {};
 
@@ -73,8 +72,12 @@ const Display: FC<T_Props> = () => {
 							fullWidth
 							sx={{ mt: 0.8 }}
 						>
-							<ToggleButton value={CHAT_POSITIONS[0]}>Bottom Left</ToggleButton>
-							<ToggleButton value={CHAT_POSITIONS[1]}>Bottom Right</ToggleButton>
+							<ToggleButton value={CHAT_POSITIONS.bottomLeft}>
+								Bottom Left
+							</ToggleButton>
+							<ToggleButton value={CHAT_POSITIONS.bottomRight}>
+								Bottom Right
+							</ToggleButton>
 						</ToggleButtonGroup>
 					}
 					label='Choose chat position on the page.'
@@ -107,12 +110,12 @@ const Display: FC<T_Props> = () => {
 							}
 						>
 							<FormControlLabel
-								value={CHAT_VISIBILITY_ON_PAGES[0]}
+								value={CHAT_VISIBILITY_ON_PAGES.allPages}
 								control={<Radio />}
 								label='On all pages'
 							/>
 							<FormControlLabel
-								value={CHAT_VISIBILITY_ON_PAGES[1]}
+								value={CHAT_VISIBILITY_ON_PAGES.selectedPages}
 								control={<Radio />}
 								label='On selected pages'
 							/>
@@ -124,7 +127,7 @@ const Display: FC<T_Props> = () => {
 				/>
 
 				<Collapse
-					in={visibility.type === CHAT_VISIBILITY_ON_PAGES[1]}
+					in={visibility.type === CHAT_VISIBILITY_ON_PAGES.selectedPages}
 					sx={{ pt: 0.1 }}
 				>
 					<Divider />

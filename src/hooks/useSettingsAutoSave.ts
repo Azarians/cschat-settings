@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { requestSettingsUpdate } from '../helpers/functions/settings';
 import { selectChatId } from '../store/reducers/chat/selectors';
 import { selectSettings } from '../store/reducers/settings/selectors';
+import { requestSettingsUpdate } from 'cschat-helpers';
 
 let isOnInitialLoad = true;
 

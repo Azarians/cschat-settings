@@ -1,4 +1,3 @@
-import { T_Settings } from '../../../helpers/types/settings';
 import {
 	UPDATE_AUTHORIZATION,
 	UPDATE_BLACK_LIST,
@@ -11,6 +10,7 @@ import {
 	T_updateSettingsParams,
 	T_updateDisplaySettings
 } from './types';
+import { T_Settings } from 'cschat-helpers';
 
 const updateSettingsParams = (params: Partial<T_Settings>): T_updateSettingsParams => ({
 	type: UPDATE_SETTINGS_PARAMS,

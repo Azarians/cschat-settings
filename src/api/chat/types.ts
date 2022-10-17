@@ -1,5 +1,4 @@
-import { T_Chat } from '../../helpers/types/chat';
-import { T_Settings } from '../../helpers/types/settings';
+import { T_Chat, T_Settings } from 'cschat-helpers';
 
 export type T_ResponseAuthorizeChat = {
 	chat: T_Chat;

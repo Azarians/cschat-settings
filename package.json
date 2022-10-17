@@ -7,7 +7,7 @@
     "@emotion/styled": "^11.10.0",
     "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.2",
-    "cschat-helpers": "github:Azarians/cschat-helpers",
+    "cschat-helpers" : "github:Azarians/cschat-helpers",
     "cschat-messenger": "github:Azarians/cschat-messenger",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

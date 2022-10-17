@@ -27,28 +27,9 @@ const APP_PATHS = {
 	texts: 'texts'
 } as const;
 
-const CONNECTION_STATUSES = ['online', 'offline'] as const;
-
-const VISIBILITY_TYPES = ['private', 'group'] as const;
-
 const SITE_LANGUAGE = getUrlParameter('lang') || window.Wix.Utils.getLocale() || 'en';
-
-const EMAIL_REG_EXP =
-	/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-const IP_REG_EXP =
-	/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
 
 const SITE_MAP: T_SiteMap = [];
 getSiteMap((siteMap: T_SiteMap) => SITE_MAP.push(...siteMap));
 
-export {
-	SITE_ID,
-	APP_PATHS,
-	CONNECTION_STATUSES,
-	VISIBILITY_TYPES,
-	APP_ID,
-	SITE_LANGUAGE,
-	EMAIL_REG_EXP,
-	IP_REG_EXP,
-	SITE_MAP
-};
+export { SITE_ID, APP_PATHS, APP_ID, SITE_LANGUAGE, SITE_MAP };

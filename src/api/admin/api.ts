@@ -1,4 +1,4 @@
-import { T_SiteId } from '../../helpers/types/commons';
+import { T_SiteId } from 'cschat-helpers';
 
 const R_authorizeAdmin = (siteId: T_SiteId) => {
 	return fetch(`${process.env.REACT_APP_API_ROOT}authadmin`, {

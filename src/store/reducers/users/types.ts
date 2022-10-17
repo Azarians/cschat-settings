@@ -1,5 +1,5 @@
-import { T_User } from '../../../helpers/types/user';
 import { GET_USERS_SUCCEEDED } from './actionTypes';
+import { T_User } from 'cschat-helpers';
 
 export type T_UsersState = {
 	list: T_User[];

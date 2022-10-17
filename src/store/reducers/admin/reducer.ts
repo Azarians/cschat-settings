@@ -1,12 +1,13 @@
-import { CONNECTION_STATUSES, SITE_ID } from '../../../helpers/constants/commons';
+import { SITE_ID } from '../../../helpers/constants/commons';
 import { AUTHORIZE_ADMIN_SUCCEEDED } from './actionTypes';
 import { T_AdminState, T_AdminReducerAction } from './types';
+import { CONNECTION_STATUSES } from 'cschat-helpers';
 
 const initialState: T_AdminState = {
 	_id: '',
 	siteId: SITE_ID,
 	country: 'Unknown',
-	status: CONNECTION_STATUSES[0],
+	status: CONNECTION_STATUSES.online,
 	createdAt: NaN
 };
 

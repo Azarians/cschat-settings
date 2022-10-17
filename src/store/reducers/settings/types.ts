@@ -1,10 +1,10 @@
-import { T_Settings } from '../../../helpers/types/settings';
 import {
 	UPDATE_AUTHORIZATION,
 	UPDATE_BLACK_LIST,
 	UPDATE_DISPLAY_SETTINGS,
 	UPDATE_SETTINGS_PARAMS
 } from './actionTypes';
+import { T_Settings } from 'cschat-helpers';
 
 export type T_SettingsState = T_Settings;
 

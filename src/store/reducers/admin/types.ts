@@ -1,5 +1,5 @@
-import { T_Admin } from '../../../helpers/types/admin';
 import { AUTHORIZE_ADMIN_SUCCEEDED } from './actionTypes';
+import { T_Admin } from 'cschat-helpers';
 
 export type T_AdminState = T_Admin;
 

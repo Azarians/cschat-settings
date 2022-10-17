@@ -1,12 +1,12 @@
 import { R_authorizeAdmin } from '../../../api/admin/api';
 import { SITE_ID } from '../../../helpers/constants/commons';
 import { LOADER_IDS } from '../../../helpers/constants/loader';
-import { T_Admin } from '../../../helpers/types/admin';
 import { authorizeAdminSecceeded } from '../../reducers/admin/actionCreators';
 import { setLoader } from '../../reducers/loader/actionCreators';
 import { getUsersRequested } from '../users/actionCreators';
 import { AUTHORIZE_ADMIN_REQUESTED } from './actionTypes';
 import { T_authorizeAdminRequested } from './types';
+import { T_Admin } from 'cschat-helpers';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 
 function* SWO_AuthorizeAdmin({ payload: { chatId } }: T_authorizeAdminRequested) {

@@ -1,5 +1,5 @@
-import { T_Chat } from '../../../helpers/types/chat';
 import { GET_USERS_REQUESTED } from './actionTypes';
+import { T_Chat } from 'cschat-helpers';
 
 export type T_getUsersRequested = {
 	type: typeof GET_USERS_REQUESTED;

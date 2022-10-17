@@ -1,13 +1,13 @@
 import React, { FC, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TranslatedText } from '../../components/translatedText/TranslatedText';
-import { IP_REG_EXP } from '../../helpers/constants/commons';
 import { updateBlackList } from '../../store/reducers/settings/actionCreators';
 import { selectBLackListIPs } from '../../store/reducers/settings/selectors';
 import { ChipList } from '../chipList/ChipList';
 import BlockIcon from '@mui/icons-material/Block';
 import { Divider, IconButton, TextField, Tooltip } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import { IP_REG_EX } from 'cschat-helpers';
 
 type T_Props = {};
 
@@ -21,7 +21,7 @@ const IPs: FC<T_Props> = () => {
 	const blockIP = () => {
 		const IPToAdd = newIP.trim();
 		if (!IPToAdd) return;
-		if (!IP_REG_EXP.test(IPToAdd)) return setIsIPInvalid(true);
+		if (!IP_REG_EX.test(IPToAdd)) return setIsIPInvalid(true);
 		if (blockedIPs.includes(IPToAdd)) {
 			highlightIP(IPToAdd);
 		} else {

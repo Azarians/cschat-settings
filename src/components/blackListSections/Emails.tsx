@@ -1,13 +1,13 @@
 import React, { FC, useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { TranslatedText } from '../../components/translatedText/TranslatedText';
-import { EMAIL_REG_EXP } from '../../helpers/constants/commons';
 import { updateBlackList } from '../../store/reducers/settings/actionCreators';
 import { selectBLackListEmails } from '../../store/reducers/settings/selectors';
 import { ChipList } from '../chipList/ChipList';
 import BlockIcon from '@mui/icons-material/Block';
 import { Divider, IconButton, TextField, Tooltip } from '@mui/material';
 import Stack from '@mui/material/Stack';
+import { EMAIL_REG_EX } from 'cschat-helpers';
 
 type T_Props = {};
 
@@ -21,7 +21,7 @@ const Emails: FC<T_Props> = () => {
 	const blockEmail = () => {
 		const emailToAdd = newEmail.trim();
 		if (!emailToAdd) return;
-		if (!EMAIL_REG_EXP.test(emailToAdd)) return setIsEmailInvalid(true);
+		if (!EMAIL_REG_EX.test(emailToAdd)) return setIsEmailInvalid(true);
 		if (emails.includes(emailToAdd)) {
 			highlightEmail(emailToAdd);
 		} else {

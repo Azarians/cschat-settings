@@ -1,11 +1,11 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { COUNTRIES } from '../../helpers/constants/countries';
 import { updateBlackList } from '../../store/reducers/settings/actionCreators';
 import { selectBLackListCountries } from '../../store/reducers/settings/selectors';
 import { ChipList } from '../chipList/ChipList';
 import { TranslatedText } from '../translatedText/TranslatedText';
 import { Autocomplete, Box, Divider, Stack, TextField } from '@mui/material';
+import { COUNTRIES_LIST } from 'cschat-helpers';
 
 type T_Props = {};
 
@@ -29,7 +29,7 @@ const Countries: FC<T_Props> = () => {
 	);
 
 	const filteredCountries = useMemo(() => {
-		return COUNTRIES.filter((c) => !blockedCountries.includes(c.label));
+		return COUNTRIES_LIST.filter((c) => !blockedCountries.includes(c.label));
 	}, [blockedCountries]);
 
 	return (

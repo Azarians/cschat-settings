@@ -1,6 +1,5 @@
 import { T_ResponseAuthorizeChat } from '../../../api/chat/types';
 import { APP_ID } from '../../../helpers/constants/commons';
-import { establishSocketConnection } from '../../../helpers/functions/settings';
 import { setLoader } from '../../reducers/loader/actionCreators';
 import { updateSettingsParams } from '../../reducers/settings/actionCreators';
 import { authorizeAdminRequested } from '../admin/actionCreators';
@@ -8,6 +7,7 @@ import { R_authorizeChat } from './../../../api/chat/api';
 import { LOADER_IDS } from './../../../helpers/constants/loader';
 import { authorizeChatSucceeded } from './../../reducers/chat/actionCreators';
 import { AUTHORIZE_CHAT_REQUESTED } from './actionTypes';
+import { establishSettingsSocketConnection, VIEW_MODES } from 'cschat-helpers';
 import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { ActionCreators } from 'redux-undo';
 
@@ -19,7 +19,11 @@ function* SWO_AuthorizeChat() {
 
 		yield put(authorizeChatSucceeded(chat));
 
-		establishSocketConnection({ chatId: chat._id });
+		establishSettingsSocketConnection({
+			chatId: chat._id,
+			viewMode: VIEW_MODES.editor,
+			url: String(process.env.REACT_APP_AUTOSAVE_SOCKET_URL)
+		});
 
 		if (settings) yield put(updateSettingsParams(settings));
 

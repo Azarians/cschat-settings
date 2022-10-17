@@ -1,12 +1,8 @@
 import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { AUTHORIZATION_FIELDS } from '../../../helpers/constants/settings';
 import SectionHeader from './../../../components/sectionHeader/SectionHeader';
 import { TranslatedText } from './../../../components/translatedText/TranslatedText';
-import {
-	AUTHORIZATION_FIELDS,
-	SHOW_AUTHORIZATION_FORM_OPTIONS
-} from './../../../helpers/constants/settings';
-import { T_Authorization, T_AuthorizationField } from './../../../helpers/types/settings';
 import { updateAuthorization } from './../../../store/reducers/settings/actionCreators';
 import { selectAuthorization } from './../../../store/reducers/settings/selectors';
 import { Radio, RadioGroup } from '@mui/material';
@@ -19,6 +15,7 @@ import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
+import { SHOW_AUTHORIZATION_FORM, T_Authorization, T_AuthorizationField } from 'cschat-helpers';
 
 type T_Props = {};
 
@@ -144,12 +141,12 @@ const AuthorizationRules: FC<T_Props> = () => {
 							}
 						>
 							<FormControlLabel
-								value={SHOW_AUTHORIZATION_FORM_OPTIONS[0]}
+								value={SHOW_AUTHORIZATION_FORM.onOpenChat}
 								control={<Radio />}
 								label='Once they open the chat'
 							/>
 							<FormControlLabel
-								value={SHOW_AUTHORIZATION_FORM_OPTIONS[1]}
+								value={SHOW_AUTHORIZATION_FORM.onSendMessage}
 								control={<Radio />}
 								label='After they send a message'
 							/>

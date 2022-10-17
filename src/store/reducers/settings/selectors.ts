@@ -1,7 +1,7 @@
 import { T_SitePage } from '../../../helpers/types/commons';
-import { T_Language, T_TimeFormat } from '../../../helpers/types/settings';
 import { T_RootState } from './../../index';
 import { T_SettingsState } from './types';
+import { T_Language, T_TimeFormat } from 'cschat-helpers';
 
 const selectSettings = (state: T_RootState): T_SettingsState => state.settings.present;
 const selectIsSettingsChanged = (state: T_RootState): boolean =>

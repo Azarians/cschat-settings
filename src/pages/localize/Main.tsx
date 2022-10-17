@@ -2,8 +2,6 @@ import React, { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SectionHeader from './../../components/sectionHeader/SectionHeader';
 import { TranslatedText } from './../../components/translatedText/TranslatedText';
-import { LANGUAGES_LIST, TIME_FORMAT_TYPES } from './../../helpers/constants/settings';
-import { T_Language, T_Settings, T_TimeFormat } from './../../helpers/types/settings';
 import { updateSettingsParams } from './../../store/reducers/settings/actionCreators';
 import {
 	selectLanguage,
@@ -19,6 +17,7 @@ import Switch from '@mui/material/Switch';
 import TextField from '@mui/material/TextField';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import { LANGUAGES_LIST, TIME_FORMATS, T_Language, T_Settings, T_TimeFormat } from 'cschat-helpers';
 
 type T_Props = {};
 
@@ -91,10 +90,10 @@ const Localize: FC<T_Props> = () => {
 							}}
 							fullWidth
 						>
-							<ToggleButton value={TIME_FORMAT_TYPES[0]}>
+							<ToggleButton value={TIME_FORMATS._12h}>
 								<TranslatedText>AM/PM</TranslatedText>
 							</ToggleButton>
-							<ToggleButton value={TIME_FORMAT_TYPES[1]}>
+							<ToggleButton value={TIME_FORMATS._24h}>
 								<TranslatedText>24H</TranslatedText>
 							</ToggleButton>
 						</ToggleButtonGroup>
